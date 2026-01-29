@@ -84,6 +84,36 @@ window.addEventListener('scroll', () => {
 });
 
 /* ============================================================
+   MENU HAMBURGUER MOBILE
+============================================================ */
+
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+
+    // Fecha o menu ao clicar em um link
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            menu.classList.remove('active');
+        });
+    });
+
+    // Fecha o menu ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            menu.classList.remove('active');
+        }
+    });
+}
+
+/* ============================================================
    ENVIO DO FORMULÁRIO (INTEGRAÇÃO FUTURA GOOGLE SHEETS)
 ============================================================ */
 const formContato = document.querySelector('#contato form');
