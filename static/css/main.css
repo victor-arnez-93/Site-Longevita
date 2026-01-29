@@ -196,16 +196,16 @@ p, li, input, textarea, button {
 
 .fundo1 {
     background: url("../imagens/fundo1.png") center center / cover no-repeat;
-    background-attachment: fixed;
     padding: 90px 0;
     position: relative;
+    min-height: 500px;
 }
 
 .fundo2 {
     background: url("../imagens/fundo2.png") center center / cover no-repeat;
-    background-attachment: fixed;
     padding: 90px 0;
     position: relative;
+    min-height: 500px;
 }
 
 /* Overlay sutil para melhorar legibilidade */
