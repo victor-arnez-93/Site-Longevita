@@ -3,30 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Meta Tags -->
-    <title>Longevitá | Residencial Sênior, Centro Dia e Homecare em Tatuí-SP</title>
-    <meta name="description" content="Há mais de 20 anos cuidando da saúde e conectando gerações. Residencial Sênior, Centro Dia 60+ e Homecare em Tatuí-SP. Cuidado especializado e humanizado.">
-    <meta name="keywords" content="casa de repouso tatuí, residencial senior, centro dia idosos, homecare, longevita, cuidado idosos tatuí">
-    <meta name="author" content="CRV Soluções em TI">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://capalbo1.github.io/ProjetoCyroLongevita/">
-    <meta property="og:title" content="Longevitá | Cuidado Especializado para Idosos em Tatuí-SP">
-    <meta property="og:description" content="Há mais de 20 anos cuidando da saúde e conectando gerações. Residencial Sênior, Centro Dia 60+ e Homecare.">
-    <meta property="og:image" content="https://capalbo1.github.io/ProjetoCyroLongevita/static/imagens/logo1.png">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Longevitá | Cuidado Especializado para Idosos">
-    <meta name="twitter:description" content="Há mais de 20 anos cuidando da saúde e conectando gerações em Tatuí-SP.">
-    <meta name="twitter:image" content="https://capalbo1.github.io/ProjetoCyroLongevita/static/imagens/logo1.png">
+    <meta name="description" content="Longevitá - Cuidado integral para idosos em Tatuí-SP. Residencial Sênior e Centro Dia 60+ com equipe multidisciplinar especializada.">
+    <meta name="keywords" content="casa de repouso, cuidados para idosos, residencial sênior, centro dia, Tatuí, geriatria">
+    <title>Longevitá - Cuidado Integral para Idosos | Tatuí-SP</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="static/imagens/favicon.png">
-    <link rel="apple-touch-icon" href="static/imagens/favicon.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,45 +24,50 @@
 <body>
 
     <!-- ============================================================
-         HEADER
+         HEADER COM MENU
     ============================================================ -->
     <header class="header">
         <div class="header-container">
             <div class="logo-area">
-                <img src="static/imagens/logo1.png" alt="Longevitá Logo" class="logo">
-                <span class="titulo-clinica">Longevitá</span>
+                <img src="static/imagens/logo1.png" alt="Logo Longevitá" class="logo">
+                <h1 class="titulo-clinica">LONGEVITÁ</h1>
             </div>
+
+            <nav class="menu">
+                <a href="#home">Home</a>
+                <a href="#quem-somos">Quem Somos</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#destaques">Destaques</a>
+                <a href="#equipe">Equipe</a>
+                <a href="#espacos">Nosso Espaço</a>
+                <a href="#localizacao">Localização</a>
+                <a href="#contato" class="button-primary">
+                    <i class="fas fa-envelope"></i> Contato
+                </a>
+            </nav>
+
             <button class="menu-toggle" aria-label="Menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav class="menu">
-                <a href="#inicio">Home</a>
-                <a href="#quem-somos">Quem Somos</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#atividades">Destaques</a>
-                <a href="#profissionais">Profissionais</a>
-                <a href="#contato">Contato</a>
-                <a href="#prontuario" class="button-primary">
-                    <i class="fas fa-file-medical"></i> Prontuário
-                </a>
-            </nav>
         </div>
     </header>
 
     <!-- ============================================================
-         HERO SECTION
+         HERO / HOME
     ============================================================ -->
-    <section id="inicio" class="hero fundo1 animar">
-        <div class="hero-card">
-            <h1>Conectando Gerações pela Saúde dos Idosos</h1>
-            <p>Há mais de 20 anos oferecendo cuidado especializado, atenção humanizada e qualidade de vida em 3 espaços adaptados em Tatuí-SP</p>
-            <div class="hero-buttons">
-                <a href="https://wa.me/5515997710771?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Longevitá" target="_blank" class="button-primary">
-                    <i class="fab fa-whatsapp"></i> Fale Conosco
-                </a>
-                <a href="#servicos" class="button-primary">
-                    <i class="fas fa-heart"></i> Nossos Serviços
-                </a>
+    <section id="home" class="hero fundo1">
+        <div class="container">
+            <div class="hero-card animar">
+                <h1>Conectando gerações com cuidado, respeito e qualidade de vida</h1>
+                <p>Aqui, cada pessoa é acolhida de forma única — com profissionalismo e humanização, para viver um envelhecimento com dignidade e significado em 2 espaços amplos e adaptados.</p>
+                <div class="hero-buttons">
+                    <a href="#servicos" class="button-primary">
+                        <i class="fas fa-heart"></i> Conheça Nossos Serviços
+                    </a>
+                    <a href="https://wa.me/5515981234567" target="_blank" class="button-primary">
+                        <i class="fab fa-whatsapp"></i> Fale Conosco
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -88,222 +75,550 @@
     <!-- ============================================================
          QUEM SOMOS
     ============================================================ -->
-    <section id="quem-somos" class="quem-somos fundo2 animar">
-        <div class="container">
-            <h2>Quem Somos</h2>
+    <section id="quem-somos" class="quem-somos fundo2">
+        <div class="container animar">
+            <h2>Longevitá — cuidado que respeita histórias de vida</h2>
+            <p class="subtitulo">Acolhimento, respeito e profissionalismo em cada etapa do envelhecimento</p>
+
             <div class="quem-somos-content">
-                <img src="static/imagens/logo1.png" alt="Longevitá" class="logo-grande">
-                <p>A <strong>Longevitá</strong> nasceu da missão de proporcionar cuidados especializados e atenção humanizada para pessoas em diferentes estágios do envelhecimento.</p>
-                <p>Com <strong>mais de 20 anos de experiência</strong>, oferecemos três modalidades de atendimento adaptadas às necessidades de cada família: <strong>Residencial Sênior</strong>, <strong>Centro Dia 60+</strong> e <strong>Homecare</strong>.</p>
-                <p>Nossa equipe multidisciplinar trabalha com dedicação, empatia e profissionalismo para garantir bem-estar, segurança e qualidade de vida aos nossos assistidos.</p>
-                <div class="info-destaque">
-                    <div class="info-item">
-                        <i class="fas fa-building"></i>
-                        <span><strong>3</strong> Unidades em Tatuí-SP</span>
+                <img src="static/imagens/logo1.png" alt="Logo Longevitá" class="logo-grande">
+
+                <p>O Longevitá é um espaço dedicado ao cuidado integral da pessoa idosa, criado para acolher com respeito, segurança e afeto cada etapa do envelhecimento. Atuamos em duas frentes complementares: o <strong>Longevitá Residencial Sênior</strong> e o <strong>Longevitá Centro Dia 60+</strong>, oferecendo soluções que se adaptam às diferentes necessidades dos idosos e de suas famílias.</p>
+
+                <p>No <strong>Residencial Sênior</strong>, proporcionamos moradia assistida em ambiente seguro, confortável e humanizado, com acompanhamento profissional e atenção contínua, respeitando a individualidade, a autonomia possível e a história de cada residente.</p>
+
+                <p>Já no <strong>Centro Dia 60+</strong>, acolhemos idosos que permanecem conosco durante o dia, participando de atividades terapêuticas, sociais e cognitivas, retornando ao lar ao final da rotina. É uma proposta que promove convivência, estímulo, bem-estar e qualidade de vida, ao mesmo tempo em que oferece suporte e tranquilidade às famílias.</p>
+
+                <p>Mais do que cuidar, acreditamos em construir vínculos. Nossa equipe multidisciplinar atua com sensibilidade, ética e conhecimento técnico, criando um ambiente onde o idoso é visto como protagonista da própria história — com dignidade, escuta e propósito.</p>
+            </div>
+
+            <!-- Missão, Visão e Valores -->
+            <div class="pilares-mvv">
+                <div class="pilar-card">
+                    <div class="pilar-icon">
+                        <i class="fas fa-bullseye"></i>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-star"></i>
-                        <span><strong>4.7</strong> Avaliação Google</span>
+                    <h3>Missão</h3>
+                    <p>Proporcionar cuidado integral e de excelência para pessoas idosas, fortalecendo vínculos, autonomia e qualidade de vida.</p>
+                </div>
+
+                <div class="pilar-card">
+                    <div class="pilar-icon">
+                        <i class="fas fa-eye"></i>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span><strong>20+</strong> Anos de Experiência</span>
+                    <h3>Visão</h3>
+                    <p>Ser referência em cuidado sênior na região, reconhecida pela qualidade técnica, inovação em serviços e comprometimento com a dignidade de cada pessoa.</p>
+                </div>
+
+                <div class="pilar-card">
+                    <div class="pilar-icon">
+                        <i class="fas fa-gem"></i>
                     </div>
+                    <h3>Valores</h3>
+                    <ul class="valores-lista">
+                        <li><i class="fas fa-check-circle"></i> Respeito à individualidade</li>
+                        <li><i class="fas fa-check-circle"></i> Humanização em primeiro lugar</li>
+                        <li><i class="fas fa-check-circle"></i> Transparência e ética</li>
+                        <li><i class="fas fa-check-circle"></i> Cuidado centrado na pessoa</li>
+                        <li><i class="fas fa-check-circle"></i> Excelência e profissionalismo</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-         SERVIÇOS
+         SERVIÇOS (2 CARDS)
     ============================================================ -->
-    <section id="servicos" class="servicos fundo1 animar">
-        <div class="container">
-            <h2>Nossos Serviços</h2>
-            <p class="subtitulo">Cuidado especializado em três modalidades</p>
+    <section id="servicos" class="servicos fundo1">
+        <div class="container animar">
+            <h2>Serviços</h2>
+            <p class="subtitulo">Cuidado especializado em duas modalidades complementares</p>
 
             <div class="servicos-grid">
-                <!-- Centro Dia -->
+                <!-- Centro Dia 60+ -->
                 <div class="servico-card">
-                    <i class="fas fa-sun icon-servico"></i>
+                    <div class="icon-servico">
+                        <i class="fas fa-sun"></i>
+                    </div>
                     <h3>Centro Dia 60+</h3>
-                    <p>Atividades diárias especializadas, terapias ocupacionais, fisioterapia e socialização. Seu familiar recebe todos os cuidados durante o dia e retorna para casa ao final da tarde.</p>
-                    <ul class="lista-servico">
-                        <li><i class="fas fa-check"></i> Dança Sênior</li>
-                        <li><i class="fas fa-check"></i> Oficina da Memória</li>
-                        <li><i class="fas fa-check"></i> Horta Terapêutica</li>
-                        <li><i class="fas fa-check"></i> Canto Coral</li>
-                        <li><i class="fas fa-check"></i> Alimentação Saudável</li>
-                    </ul>
+                    <p>No Centro Dia 60+ desenvolvemos atividades planejadas que estimulam o corpo, a cognição e a sociabilidade, sempre respeitando o ritmo de cada pessoa.</p>
+                    <p>Aqui, o idoso passa o dia sob cuidados especializados e retorna ao lar ao final da tarde, com rotina rica em experiências significativas: terapias, oficinas, exercícios e momentos de convivência que promovem bem-estar e autonomia.</p>
+                    <a href="#contato" class="button-primary">
+                        <i class="fas fa-info-circle"></i> Saiba Mais
+                    </a>
                 </div>
 
                 <!-- Residencial Sênior -->
                 <div class="servico-card">
-                    <i class="fas fa-home icon-servico"></i>
+                    <div class="icon-servico">
+                        <i class="fas fa-house-user"></i>
+                    </div>
                     <h3>Residencial Sênior</h3>
-                    <p>Moradia permanente com estrutura completa, equipe multidisciplinar 24h, quartos confortáveis e ambiente acolhedor para proporcionar autonomia e bem-estar.</p>
-                    <ul class="lista-servico">
-                        <li><i class="fas fa-check"></i> Acompanhamento 24h</li>
-                        <li><i class="fas fa-check"></i> Equipe de Enfermagem</li>
-                        <li><i class="fas fa-check"></i> Fisioterapia</li>
-                        <li><i class="fas fa-check"></i> Nutricionista</li>
-                        <li><i class="fas fa-check"></i> Atividades Recreativas</li>
-                    </ul>
-                </div>
-
-                <!-- Homecare -->
-                <div class="servico-card">
-                    <i class="fas fa-user-nurse icon-servico"></i>
-                    <h3>Homecare</h3>
-                    <p>Atendimento domiciliar personalizado com profissionais especializados. Cuidado no conforto do lar, respeitando a rotina e preferências da família.</p>
-                    <ul class="lista-servico">
-                        <li><i class="fas fa-check"></i> Cuidadores Especializados</li>
-                        <li><i class="fas fa-check"></i> Enfermagem Domiciliar</li>
-                        <li><i class="fas fa-check"></i> Fisioterapia em Casa</li>
-                        <li><i class="fas fa-check"></i> Acompanhamento Médico</li>
-                        <li><i class="fas fa-check"></i> Horários Flexíveis</li>
-                    </ul>
+                    <p>Nosso Residencial Sênior oferece um ambiente seguro, acolhedor e adaptado para uma vida com conforto, dignidade e cuidado integral 24h.</p>
+                    <p>Com equipe multidisciplinar, acompanhamos saúde, mobilidade, alimentação e socialização, sempre com foco na qualidade de vida e no respeito às histórias pessoais de quem escolhe viver conosco.</p>
+                    <a href="#contato" class="button-primary">
+                        <i class="fas fa-info-circle"></i> Saiba Mais
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-         ATIVIDADES / DESTAQUES
+         DESTAQUES & ATIVIDADES (CARROSSEL INFINITO)
     ============================================================ -->
-    <section id="atividades" class="atividades fundo2 animar">
-        <div class="container">
+    <section id="destaques" class="atividades fundo2">
+        <div class="container animar">
             <h2>Destaques & Atividades</h2>
-            <p class="subtitulo">Promovendo saúde, bem-estar e qualidade de vida</p>
+            <p class="subtitulo">Promovendo saúde, bem-estar e vivências ativas</p>
 
-            <div class="atividades-grid">
-                <div class="atividade-card">
-                    <i class="fas fa-walking icon-atividade"></i>
-                    <h3>Fisioterapia</h3>
-                    <p>Cuide do seu corpo com nossas sessões de fisioterapia. Profissionais experientes para promover mobilidade e bem-estar físico.</p>
+            <div class="carrossel-wrapper">
+                <button class="carrossel-btn prev" aria-label="Anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="carrossel-container">
+                    <div class="carrossel-track">
+                        <!-- Atividade 1 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>Artesanato</h3>
+                            <p>Criação manual como experiência de foco, satisfação e conexão com o fazer.</p>
+                        </div>
+
+                        <!-- Atividade 2 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3>Arteterapia</h3>
+                            <p>Processos terapêuticos que utilizam a arte como caminho para equilíbrio emocional e significado.</p>
+                        </div>
+
+                        <!-- Atividade 3 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h3>Atividade Física</h3>
+                            <p>Programas personalizados que sustentam vitalidade, funcionalidade e longevidade ativa.</p>
+                        </div>
+
+                        <!-- Atividade 4 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-circle-dot"></i>
+                            </div>
+                            <h3>Bingo</h3>
+                            <p>Momentos de convivência cuidadosamente conduzidos, unindo estímulo cognitivo e prazer social.</p>
+                        </div>
+
+                        <!-- Atividade 5 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h3>Dança</h3>
+                            <p>Expressão refinada do movimento, promovendo leveza, prazer e bem-estar integral.</p>
+                        </div>
+
+                        <!-- Atividade 6 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-person-walking"></i>
+                            </div>
+                            <h3>Fisioterapia</h3>
+                            <p>Cuidado clínico de excelência, voltado à preservação da mobilidade, do conforto e da autonomia.</p>
+                        </div>
+
+                        <!-- Atividade 7 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-guitar"></i>
+                            </div>
+                            <h3>Musicoterapia</h3>
+                            <p>A música como linguagem terapêutica para acessar memórias, emoções e vínculos afetivos.</p>
+                        </div>
+
+                        <!-- Atividade 8 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Oficina da Memória</h3>
+                            <p>Estímulos cognitivos estruturados para preservar funções mentais e autonomia.</p>
+                        </div>
+
+                        <!-- Atividade 9 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3>Oficina de Culinária</h3>
+                            <p>Experiências sensoriais que resgatam memórias, sabores e o prazer de compartilhar.</p>
+                        </div>
+
+                        <!-- Atividade 10 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <h3>Pintura</h3>
+                            <p>Vivências artísticas que estimulam a sensibilidade, a cognição e a expressão pessoal.</p>
+                        </div>
+
+                        <!-- Atividade 11 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                            <h3>Pilates</h3>
+                            <p>Movimento consciente e preciso, com acompanhamento individualizado e atenção absoluta ao corpo.</p>
+                        </div>
+
+                        <!-- Atividade 12 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Psicologia</h3>
+                            <p>Vivências terapêuticas em grupo, conduzidas com escuta qualificada, promovendo reflexão, vínculo e bem-estar emocional.</p>
+                        </div>
+
+                        <!-- Atividade 13 -->
+                        <div class="atividade-card">
+                            <div class="icon-atividade">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h3>Terapia Ocupacional</h3>
+                            <p>Intervenções especializadas que mantêm independência e excelência nas atividades cotidianas.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="atividade-card">
-                    <i class="fas fa-utensils icon-atividade"></i>
-                    <h3>Alimentação Saudável</h3>
-                    <p>Explore o sabor e os benefícios de uma alimentação equilibrada. Dicas, receitas e pratos deliciosos para promover uma vida saudável e energética.</p>
-                </div>
-
-                <div class="atividade-card">
-                    <i class="fas fa-music icon-atividade"></i>
-                    <h3>Dança Sênior</h3>
-                    <p>Explore a alegria da dança em uma atmosfera descontraída. Movimentos suaves para promover saúde física e bem-estar emocional.</p>
-                </div>
-
-                <div class="atividade-card">
-                    <i class="fas fa-seedling icon-atividade"></i>
-                    <h3>Horta Terapêutica</h3>
-                    <p>Cultive conexões enquanto cuida da natureza. Participe de nossa horta terapêutica, uma experiência enriquecedora para mente e corpo.</p>
-                </div>
-
-                <div class="atividade-card">
-                    <i class="fas fa-microphone-alt icon-atividade"></i>
-                    <h3>Canto Coral</h3>
-                    <p>Descubra a harmonia da música em nosso coral. Uma oportunidade para expressar-se, socializar e desfrutar de belas melodias juntos.</p>
-                </div>
-
-                <div class="atividade-card">
-                    <i class="fas fa-brain icon-atividade"></i>
-                    <h3>Oficina da Memória</h3>
-                    <p>Exercite a mente e mantenha a memória afiada em nossas oficinas especializadas. Atividades lúdicas para estimular a cognição de maneira divertida.</p>
-                </div>
+                <button class="carrossel-btn next" aria-label="Próximo">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-         PROFISSIONAIS
+         EQUIPE
     ============================================================ -->
-    <section id="profissionais" class="profissionais fundo1 animar">
-        <div class="container">
+    <section id="equipe" class="profissionais fundo1">
+        <div class="container animar">
             <h2>Nossa Equipe</h2>
-            <p class="subtitulo">Profissionais dedicados ao cuidado humanizado</p>
+            <p class="subtitulo">Compromisso e cuidado em cada gesto</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.1rem; color: #555;">Contamos com profissionais especializados e experientes — todos dedicados a promover um ambiente de atenção, carinho e suporte técnico a quem confia no Longevitá.</p>
+
+            <!-- EQUIPE GESTORA E TÉCNICA -->
+            <h3 style="text-align: center; margin: 60px 0 40px; font-size: 2rem; color: var(--marrom);">Equipe Gestora e Técnica</h3>
 
             <div class="profissionais-grid">
                 <!-- Dr. Cyro -->
                 <div class="profissional-card">
                     <div class="profissional-foto">
-                        <img src="static/imagens/foto1.jpeg" alt="Dr. Cyro">
+                        <img src="static/imagens/foto1.jpeg" alt="Dr. Cyro Pereira">
                     </div>
-                    <h3>Dr. Cyro</h3>
-                    <p class="cargo">Coordenador Clínico</p>
-                    <div class="estrelas">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>Médico especialista com vasta experiência em geriatria e medicina preventiva. Coordena todas as atividades clínicas da Longevitá com foco no bem-estar integral dos assistidos.</p>
+                    <h3>Dr. Cyro Pereira</h3>
+                    <p class="cargo">Sócio Proprietário</p>
+                    <p>Médico especialista em geriatria e responsável técnico</p>
                 </div>
 
-                <!-- Dr. Thiago -->
+                <!-- Carla -->
                 <div class="profissional-card">
-                    <div class="profissional-foto">
-                        <img src="static/imagens/foto2.jpeg" alt="Dr. Thiago">
+                    <div class="profissional-foto profissional-placeholder">
+                        <span class="iniciais">CS</span>
                     </div>
-                    <h3>Dr. Thiago</h3>
-                    <p class="cargo">Cirurgião</p>
-                    <div class="estrelas">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>Cirurgião especializado em procedimentos geriátricos. Atua em casos que necessitam de intervenções cirúrgicas com cuidado, precisão e humanização.</p>
+                    <h3>Carla de Souza Gallina</h3>
+                    <p class="cargo">Sócio Proprietário</p>
+                    <p>Assistente Social</p>
                 </div>
 
-                <!-- CRV Soluções em TI -->
+                <!-- Flávia -->
                 <div class="profissional-card">
-                    <div class="profissional-foto">
-                        <img src="static/imagens/foto3.png" alt="CRV Soluções em TI">
+                    <div class="profissional-foto profissional-placeholder">
+                        <span class="iniciais">FB</span>
                     </div>
-                    <h3>CRV Soluções em TI</h3>
-                    <p class="cargo">Desenvolvimento de Sistemas</p>
-                    <div class="estrelas">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <h3>Flávia de Barros Nogueira</h3>
+                    <p class="cargo">Sócio Proprietário</p>
+                    <p>Musicoterapeuta e especialista em gerontologia e saúde mental</p>
+                </div>
+
+                <!-- Lucimara -->
+                <div class="profissional-card">
+                    <div class="profissional-foto profissional-placeholder">
+                        <span class="iniciais">LB</span>
                     </div>
-                    <p>Empresa especializada em desenvolvimento de soluções tecnológicas para gestão e otimização. Responsável pelo Prontuário Longevitá e sistemas de comunicação automatizada.</p>
+                    <h3>Lucimara Brito</h3>
+                    <p class="cargo">Responsável Técnico</p>
+                    <p>Enfermeira e responsável técnico pela área de enfermagem</p>
+                </div>
+
+                <!-- Vanessa -->
+                <div class="profissional-card">
+                    <div class="profissional-foto profissional-placeholder">
+                        <span class="iniciais">VC</span>
+                    </div>
+                    <h3>Vanessa Cintra</h3>
+                    <p class="cargo">Responsável Técnico</p>
+                    <p>Fisioterapeuta e responsável técnico pela área de fisioterapia e terapia ocupacional. Instrutora de pilates</p>
+                </div>
+
+                <!-- Valquíria -->
+                <div class="profissional-card">
+                    <div class="profissional-foto profissional-placeholder">
+                        <span class="iniciais">VO</span>
+                    </div>
+                    <h3>Valquíria de Oliveira</h3>
+                    <p class="cargo">Coordenadora Geral</p>
+                    <p>Técnica de enfermagem</p>
+                </div>
+
+                <!-- Vivian -->
+                <div class="profissional-card">
+                    <div class="profissional-foto profissional-placeholder">
+                        <span class="iniciais">VM</span>
+                    </div>
+                    <h3>Vivian Miranda</h3>
+                    <p class="cargo">Assistente Administrativo</p>
+                    <p>Formação em Gestão de Pessoas e Pedagogia</p>
+                </div>
+
+                <!-- Maria Gabriela -->
+                <div class="profissional-card">
+                    <div class="profissional-foto profissional-placeholder">
+                        <span class="iniciais">MG</span>
+                    </div>
+                    <h3>Maria Gabriela</h3>
+                    <p class="cargo">Nutricionista</p>
+                    <p>Especialista em nutrição geriátrica</p>
+                </div>
+            </div>
+
+            <!-- EQUIPE MULTIDISCIPLINAR -->
+            <h3 style="text-align: center; margin: 80px 0 40px; font-size: 2rem; color: var(--marrom);">Equipe Multidisciplinar</h3>
+
+            <div class="equipe-multi-grid">
+                <div class="multi-item" data-atividade="arteterapia">
+                    <i class="fas fa-paint-brush"></i>
+                    <div>
+                        <h4>Neiva</h4>
+                        <p>Arteterapia</p>
+                    </div>
+                </div>
+
+                <div class="multi-item" data-atividade="artesanato">
+                    <i class="fas fa-palette"></i>
+                    <div>
+                        <h4>Denise</h4>
+                        <p>Artesanato</p>
+                    </div>
+                </div>
+
+                <div class="multi-item" data-atividade="psicologia">
+                    <i class="fas fa-comments"></i>
+                    <div>
+                        <h4>Luciana Antulini</h4>
+                        <p>Psicologia</p>
+                    </div>
+                </div>
+
+                <div class="multi-item" data-atividade="educacao-fisica">
+                    <i class="fas fa-dumbbell"></i>
+                    <div>
+                        <h4>Ana Cristina</h4>
+                        <p>Educação Física e Dança</p>
+                    </div>
+                </div>
+
+                <div class="multi-item" data-atividade="pintura">
+                    <i class="fas fa-image"></i>
+                    <div>
+                        <h4>Roseli</h4>
+                        <p>Pintura em Tecido</p>
+                    </div>
+                </div>
+
+                <div class="multi-item" data-atividade="terapia-ocupacional">
+                    <i class="fas fa-hands-helping"></i>
+                    <div>
+                        <h4>Fernanda Florencio</h4>
+                        <p>Terapia Ocupacional</p>
+                    </div>
+                </div>
+
+                <div class="multi-item" data-atividade="pilates">
+                    <i class="fas fa-spa"></i>
+                    <div>
+                        <h4>Mariane</h4>
+                        <p>Pilates</p>
+                    </div>
+                </div>
+
+                <div class="multi-item" data-atividade="danca">
+                    <i class="fas fa-music"></i>
+                    <div>
+                        <h4>Gustavo Vaz</h4>
+                        <p>Dança</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Modal para fotos de atividades -->
+    <div id="modal-atividade" class="modal-atividade">
+        <div class="modal-atividade-content">
+            <button class="modal-close" aria-label="Fechar">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modal-atividade-img" src="" alt="Atividade">
+            <p id="modal-atividade-titulo"></p>
+        </div>
+    </div>
+
     <!-- ============================================================
-         LOCALIZAÇÃO
+         NOSSO ESPAÇO (NOVA SEÇÃO)
     ============================================================ -->
-    <section id="localizacao" class="localizacao fundo2 animar">
-        <div class="container">
-            <h2>Nossas Unidades</h2>
-            <p class="subtitulo">3 espaços adaptados em Tatuí-SP</p>
+    <section id="espacos" class="espacos fundo2">
+        <div class="container animar">
+            <h2>Nosso Espaço</h2>
+            <p class="subtitulo">Ambientes acolhedores e adaptados para conforto e bem-estar</p>
+
+            <!-- Abas -->
+            <div class="espacos-tabs">
+                <button class="tab-btn active" data-tab="premium">
+                    <i class="fas fa-building"></i> Longevitá Premium (Junqueira)
+                </button>
+                <button class="tab-btn" data-tab="exclusive">
+                    <i class="fas fa-building"></i> Longevitá Exclusive (Waldemar Ferreira)
+                </button>
+            </div>
+
+            <!-- Conteúdo Premium -->
+            <div class="tab-content active" id="tab-premium">
+                <div class="espacos-galeria">
+                    <div class="espaco-item" data-img="static/imagens/premium-sala-tv.jpg">
+                        <div class="espaco-placeholder">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <p>Sala de TV</p>
+                    </div>
+
+                    <div class="espaco-item" data-img="static/imagens/premium-area-externa.jpg">
+                        <div class="espaco-placeholder">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <p>Área Externa</p>
+                    </div>
+
+                    <div class="espaco-item" data-img="static/imagens/premium-refeicao.jpg">
+                        <div class="espaco-placeholder">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <p>Sala de Refeições</p>
+                    </div>
+
+                    <div class="espaco-item" data-img="static/imagens/premium-quarto.jpg">
+                        <div class="espaco-placeholder">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <p>Quartos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo Exclusive -->
+            <div class="tab-content" id="tab-exclusive">
+                <div class="espacos-galeria">
+                    <div class="espaco-item" data-img="static/imagens/exclusive-sala-tv.jpg">
+                        <div class="espaco-placeholder">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <p>Sala de TV</p>
+                    </div>
+
+                    <div class="espaco-item" data-img="static/imagens/exclusive-area-externa.jpg">
+                        <div class="espaco-placeholder">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <p>Área Externa</p>
+                    </div>
+
+                    <div class="espaco-item" data-img="static/imagens/exclusive-refeicao.jpg">
+                        <div class="espaco-placeholder">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <p>Sala de Refeições</p>
+                    </div>
+
+                    <div class="espaco-item" data-img="static/imagens/exclusive-quarto.jpg">
+                        <div class="espaco-placeholder">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <p>Quartos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Lightbox para Espaços -->
+    <div id="lightbox-espacos" class="lightbox">
+        <button class="lightbox-close" aria-label="Fechar">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Espaço Longevitá">
+    </div>
+
+    <!-- ============================================================
+         LOCALIZAÇÃO (2 UNIDADES)
+    ============================================================ -->
+    <section id="localizacao" class="localizacao fundo1">
+        <div class="container animar">
+            <h2>Localização</h2>
+            <p class="subtitulo">2 espaços adaptados em Tatuí-SP</p>
 
             <div class="localizacao-grid">
+                <!-- Unidade Premium -->
                 <div class="local-card">
-                    <h3><i class="fas fa-map-marker-alt"></i> Centro Dia 60+</h3>
-                    <p><strong>Endereço:</strong> Rua Prof. Waldemar Ferreira, 111<br>Jardim São Paulo, Tatuí - SP</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.7!2d-47.86!3d-23.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDIxJzAwLjAiUyA0N8KwNTEnMzYuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                    <h3><i class="fas fa-map-marker-alt"></i> Longevitá Premium</h3>
+                    <p><strong>Endereço:</strong> Rua Prefeito Nicolau Sinisgalli, 146<br>
+                    Chácara Junqueira, Tatuí - SP, 18271-230</p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.8!2d-47.8567!3d-23.3567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDIxJzI0LjEiUyA0N8KwNTEnMjQuMSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                        width="100%"
+                        height="250"
+                        style="border:0; border-radius: 12px;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                    <a href="https://maps.google.com/?q=Rua+Prefeito+Nicolau+Sinisgalli+146+Tatui" target="_blank" class="button-primary" style="margin-top: 15px;">
+                        <i class="fas fa-directions"></i> Ver no Mapa
+                    </a>
                 </div>
 
+                <!-- Unidade Exclusive -->
                 <div class="local-card">
-                    <h3><i class="fas fa-map-marker-alt"></i> Residencial Sênior</h3>
-                    <p><strong>Endereço:</strong> Rua Prefeito Nicolau Sinisgalli, 146<br>Chácara Junqueira, Tatuí - SP, 18271-230</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.7!2d-47.86!3d-23.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDIxJzAwLjAiUyA0N8KwNTEnMzYuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-
-                <div class="local-card">
-                    <h3><i class="fas fa-map-marker-alt"></i> Unidade Centro</h3>
-                    <p><strong>Endereço:</strong> Rua Santa Cruz, 106<br>Centro, Tatuí - SP</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.7!2d-47.86!3d-23.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDIxJzAwLjAiUyA0N8KwNTEnMzYuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                    <h3><i class="fas fa-map-marker-alt"></i> Longevitá Exclusive</h3>
+                    <p><strong>Endereço:</strong> Rua Prof. Waldemar Ferreira, 111<br>
+                    Jardim São Paulo, Tatuí - SP</p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.9!2d-47.8534!3d-23.3589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDIxJzMyLjAiUyA0N8KwNTEnMTIuMiJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                        width="100%"
+                        height="250"
+                        style="border:0; border-radius: 12px;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                    <a href="https://maps.google.com/?q=Rua+Prof+Waldemar+Ferreira+111+Tatui" target="_blank" class="button-primary" style="margin-top: 15px;">
+                        <i class="fas fa-directions"></i> Ver no Mapa
+                    </a>
                 </div>
             </div>
         </div>
@@ -312,30 +627,31 @@
     <!-- ============================================================
          CONTATO
     ============================================================ -->
-    <section id="contato" class="contato fundo1 animar">
-        <div class="container">
-            <h2>Entre em Contato</h2>
-            <p class="contato-texto">Agende uma visita, tire suas dúvidas ou solicite mais informações. Nossa equipe está pronta para atender você!</p>
+    <section id="contato" class="contato fundo2">
+        <div class="container animar">
+            <h2>Contato</h2>
+            <p class="subtitulo">Quer conhecer nossos serviços ou agendar uma visita?</p>
+            <p class="contato-texto">Nossa equipe está pronta para tirar suas dúvidas, ouvir suas prioridades e apresentar o melhor plano de cuidado para você e sua família. Fale conosco por telefone, WhatsApp ou preencha o formulário abaixo — teremos o maior prazer em ajudar.</p>
 
-            <form class="form-contato">
+            <form class="form-contato" id="form-contato">
                 <div class="campo">
-                    <label for="nome"><i class="fas fa-user"></i> Seu Nome</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                    <label for="nome"><i class="fas fa-user"></i> Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
                 </div>
 
                 <div class="campo">
                     <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
                 </div>
 
                 <div class="campo">
-                    <label for="telefone"><i class="fas fa-phone"></i> Telefone</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(15) 99999-9999" required>
+                    <label for="telefone"><i class="fas fa-phone"></i> Telefone/WhatsApp</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(15) 98123-4567" required>
                 </div>
 
                 <div class="campo">
-                    <label for="mensagem"><i class="fas fa-comment"></i> Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" placeholder="Como podemos ajudar?" required></textarea>
+                    <label for="mensagem"><i class="fas fa-comment-dots"></i> Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Conte-nos como podemos ajudar..." required></textarea>
                 </div>
 
                 <button type="submit" class="button-primary btn-enviar">
@@ -345,40 +661,18 @@
 
             <div class="contato-info">
                 <div class="info-contato-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>(15) 99771-0771</span>
+                    <i class="fas fa-phone"></i>
+                    <span>(15) 3251-2345</span>
+                </div>
+                <div class="info-contato-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>(15) 98123-4567</span>
                 </div>
                 <div class="info-contato-item">
                     <i class="fas fa-envelope"></i>
-                    <span>longevitacdi@gmail.com</span>
+                    <span>contato@longevita.com.br</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         PRONTUÁRIO (Modal / Aviso)
-    ============================================================ -->
-    <section id="prontuario" class="prontuario-modal" style="display: none;">
-        <div class="modal-content">
-            <h2><i class="fas fa-file-medical"></i> Prontuário Longevitá</h2>
-            <p>Sistema em desenvolvimento pela equipe da CRV Soluções em TI.</p>
-            <div class="funcionalidades-futuras">
-                <h3>Funcionalidades Futuras:</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Anamnese digital</li>
-                    <li><i class="fas fa-check-circle"></i> Evoluções diárias automatizadas</li>
-                    <li><i class="fas fa-check-circle"></i> Controle de medicamentos</li>
-                    <li><i class="fas fa-check-circle"></i> Registro de exames</li>
-                    <li><i class="fas fa-check-circle"></i> Acompanhamento de atividades</li>
-                    <li><i class="fas fa-check-circle"></i> Monitoramento de sinais vitais</li>
-                    <li><i class="fas fa-check-circle"></i> Controle nutricional</li>
-                    <li><i class="fas fa-check-circle"></i> Notificações automáticas via WhatsApp para responsáveis</li>
-                </ul>
-            </div>
-            <button class="button-primary" onclick="document.getElementById('prontuario').style.display='none'">
-                <i class="fas fa-times"></i> Fechar
-            </button>
         </div>
     </section>
 
@@ -387,40 +681,36 @@
     ============================================================ -->
     <footer class="footer">
         <div class="footer-social">
-            <a href="https://www.instagram.com/longevitacdi/" target="_blank" title="Instagram">
-                <i class="fab fa-instagram fa-2x"></i>
-            </a>
-            <a href="https://www.facebook.com/longevitacdi" target="_blank" title="Facebook">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
                 <i class="fab fa-facebook fa-2x"></i>
             </a>
-            <a href="https://wa.me/5515997710771" target="_blank" title="WhatsApp">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://wa.me/5515981234567" target="_blank" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp fa-2x"></i>
             </a>
         </div>
-        <p>&copy; 2026 Longevitá - Todos os direitos reservados | Desenvolvido por <a href="https://crvsolucoesti.com" target="_blank">CRV Soluções em TI</a></p>
+        <p>&copy; 2026 Longevitá - Todos os direitos reservados</p>
+        <p>Desenvolvido por <a href="https://crvsolucoes.com" target="_blank">CRV Soluções em TI</a></p>
     </footer>
 
     <!-- ============================================================
          BOTÕES FLUTUANTES
     ============================================================ -->
     <div class="floating-buttons">
-        <button class="floating-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        <a href="https://wa.me/5515997710771?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Longevitá" target="_blank" class="floating-whatsapp">
+        <a href="https://wa.me/5515981234567?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20do%20Longevitá."
+           target="_blank"
+           class="floating-whatsapp"
+           aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
+        <button class="floating-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Voltar ao topo">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </div>
 
     <!-- JavaScript -->
     <script src="static/js/main.js"></script>
-
-    <!-- Script para abrir modal do Prontuário -->
-    <script>
-        document.querySelector('a[href="#prontuario"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('prontuario').style.display = 'flex';
-        });
-    </script>
 </body>
 </html>

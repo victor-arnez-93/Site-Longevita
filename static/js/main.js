@@ -1,11 +1,13 @@
 /* ============================================================
+   LONGEVITÁ - JAVASCRIPT ATUALIZADO 2026
+   Desenvolvido por CRV Soluções em TI
+============================================================ */
+
+/* ============================================================
    SCROLL SUAVE NO MENU
 ============================================================ */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", function(e){
-        // Ignora link do prontuário (tem handler específico)
-        if(this.getAttribute("href") === "#prontuario") return;
-
         e.preventDefault();
         const alvo = document.querySelector(this.getAttribute("href"));
         if (alvo) {
@@ -13,6 +15,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
                 top: alvo.offsetTop - 80,
                 behavior: "smooth"
             });
+
+            // Fecha menu mobile se estiver aberto
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.menu');
+            if (menuToggle && menu) {
+                menuToggle.classList.remove('active');
+                menu.classList.remove('active');
+            }
         }
     });
 });
@@ -45,29 +55,259 @@ window.addEventListener("scroll", () => {
 });
 
 /* ============================================================
-   HOVER SUAVE EM BOTÕES
+   MENU HAMBURGUER MOBILE
 ============================================================ */
-document.querySelectorAll(".button-primary").forEach(btn => {
-    btn.addEventListener("mouseenter", () => {
-        btn.style.transform = "scale(1.03) translateY(-2px)";
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        menu.classList.toggle('active');
     });
-    btn.addEventListener("mouseleave", () => {
-        btn.style.transform = "scale(1) translateY(0)";
+
+    // Fecha o menu ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            menu.classList.remove('active');
+        }
+    });
+}
+
+/* ============================================================
+   CARROSSEL INFINITO DE ATIVIDADES
+============================================================ */
+const carrosselContainer = document.querySelector('.carrossel-container');
+const carrosselTrack = document.querySelector('.carrossel-track');
+const prevBtn = document.querySelector('.carrossel-btn.prev');
+const nextBtn = document.querySelector('.carrossel-btn.next');
+
+if (carrosselTrack && carrosselContainer) {
+    const cards = Array.from(carrosselTrack.children);
+    const cardWidth = cards[0].offsetWidth + 25; // largura do card + gap
+    let currentIndex = 0;
+    let autoPlayInterval;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    // Clona cards para efeito infinito
+    const cloneFirst = cards.slice(0, 5).map(card => card.cloneNode(true));
+    const cloneLast = cards.slice(-5).map(card => card.cloneNode(true));
+
+    cloneFirst.forEach(clone => carrosselTrack.appendChild(clone));
+    cloneLast.forEach(clone => carrosselTrack.insertBefore(clone, carrosselTrack.firstChild));
+
+    currentIndex = 5; // Começa após os clones iniciais
+    updateCarrossel(false);
+
+    function updateCarrossel(animate = true) {
+        const offset = -currentIndex * cardWidth;
+        carrosselTrack.style.transition = animate ? 'transform 0.5s ease' : 'none';
+        carrosselTrack.style.transform = `translateX(${offset}px)`;
+    }
+
+    function nextSlide() {
+        currentIndex++;
+        updateCarrossel();
+
+        // Reset infinito
+        if (currentIndex >= cards.length + 5) {
+            setTimeout(() => {
+                currentIndex = 5;
+                updateCarrossel(false);
+            }, 500);
+        }
+    }
+
+    function prevSlide() {
+        currentIndex--;
+        updateCarrossel();
+
+        // Reset infinito
+        if (currentIndex < 0) {
+            setTimeout(() => {
+                currentIndex = cards.length + 4;
+                updateCarrossel(false);
+            }, 500);
+        }
+    }
+
+    // Botões de navegação
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoPlay();
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoPlay();
+    });
+
+    // Auto-play
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 3000);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    // Pausa ao hover
+    carrosselContainer.addEventListener('mouseenter', stopAutoPlay);
+    carrosselContainer.addEventListener('mouseleave', startAutoPlay);
+
+    // Drag/Swipe
+    function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    }
+
+    function dragStart(event) {
+        isDragging = true;
+        startPos = getPositionX(event);
+        carrosselContainer.style.cursor = 'grabbing';
+        stopAutoPlay();
+    }
+
+    function dragMove(event) {
+        if (!isDragging) return;
+        const currentPosition = getPositionX(event);
+        currentTranslate = prevTranslate + currentPosition - startPos;
+    }
+
+    function dragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        const movedBy = currentTranslate - prevTranslate;
+
+        if (movedBy < -100) {
+            nextSlide();
+        } else if (movedBy > 100) {
+            prevSlide();
+        }
+
+        currentTranslate = 0;
+        prevTranslate = 0;
+        carrosselContainer.style.cursor = 'grab';
+        resetAutoPlay();
+    }
+
+    // Event listeners para drag
+    carrosselContainer.addEventListener('mousedown', dragStart);
+    carrosselContainer.addEventListener('mousemove', dragMove);
+    carrosselContainer.addEventListener('mouseup', dragEnd);
+    carrosselContainer.addEventListener('mouseleave', () => {
+        if (isDragging) dragEnd();
+    });
+
+    // Touch events
+    carrosselContainer.addEventListener('touchstart', dragStart);
+    carrosselContainer.addEventListener('touchmove', dragMove);
+    carrosselContainer.addEventListener('touchend', dragEnd);
+
+    // Inicia auto-play
+    startAutoPlay();
+
+    // Recalcula ao redimensionar
+    window.addEventListener('resize', () => {
+        updateCarrossel(false);
+    });
+}
+
+/* ============================================================
+   MODAL DE ATIVIDADES (EQUIPE MULTIDISCIPLINAR)
+============================================================ */
+const modalAtividade = document.getElementById('modal-atividade');
+const modalAtividadeImg = document.getElementById('modal-atividade-img');
+const modalAtividadeTitulo = document.getElementById('modal-atividade-titulo');
+const multiItems = document.querySelectorAll('.multi-item');
+
+// Mapeia atividades para imagens (placeholder por enquanto)
+const atividadeImages = {
+    'arteterapia': 'static/imagens/atividades/arteterapia.jpg',
+    'artesanato': 'static/imagens/atividades/artesanato.jpg',
+    'psicologia': 'static/imagens/atividades/psicologia.jpg',
+    'educacao-fisica': 'static/imagens/atividades/educacao-fisica.jpg',
+    'pintura': 'static/imagens/atividades/pintura.jpg',
+    'terapia-ocupacional': 'static/imagens/atividades/terapia-ocupacional.jpg',
+    'pilates': 'static/imagens/atividades/pilates.jpg',
+    'danca': 'static/imagens/atividades/danca.jpg'
+};
+
+multiItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const atividade = item.dataset.atividade;
+        const nome = item.querySelector('h4').textContent;
+        const especialidade = item.querySelector('p').textContent;
+
+        modalAtividadeImg.src = atividadeImages[atividade] || 'static/imagens/placeholder-atividade.jpg';
+        modalAtividadeTitulo.textContent = `${nome} - ${especialidade}`;
+        modalAtividade.classList.add('active');
+    });
+});
+
+// Fecha modal de atividade
+document.querySelector('.modal-close')?.addEventListener('click', () => {
+    modalAtividade.classList.remove('active');
+});
+
+modalAtividade?.addEventListener('click', (e) => {
+    if (e.target === modalAtividade) {
+        modalAtividade.classList.remove('active');
+    }
+});
+
+/* ============================================================
+   ABAS NOSSO ESPAÇO
+============================================================ */
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const targetTab = btn.dataset.tab;
+
+        // Remove active de todos
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        // Adiciona active no clicado
+        btn.classList.add('active');
+        document.getElementById(`tab-${targetTab}`).classList.add('active');
     });
 });
 
 /* ============================================================
-   PLACEHOLDERS INTELIGENTES (efeito focus)
+   LIGHTBOX NOSSO ESPAÇO
 ============================================================ */
-document.querySelectorAll("input, textarea").forEach(campo => {
-    campo.addEventListener("focus", () => {
-        campo.style.borderColor = "#96B74B";
-        campo.style.background = "#ffffff";
+const lightbox = document.getElementById('lightbox-espacos');
+const lightboxImg = document.getElementById('lightbox-img');
+const espacoItems = document.querySelectorAll('.espaco-item');
+
+espacoItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const imgSrc = item.dataset.img;
+        lightboxImg.src = imgSrc;
+        lightbox.classList.add('active');
     });
-    campo.addEventListener("blur", () => {
-        campo.style.borderColor = "#ddd";
-        campo.style.background = "#ffffff";
-    });
+});
+
+// Fecha lightbox
+document.querySelector('.lightbox-close')?.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+    }
 });
 
 /* ============================================================
@@ -84,39 +324,9 @@ window.addEventListener('scroll', () => {
 });
 
 /* ============================================================
-   MENU HAMBURGUER MOBILE
-============================================================ */
-
-const menuToggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
-
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        menu.classList.toggle('active');
-    });
-
-    // Fecha o menu ao clicar em um link
-    document.querySelectorAll('.menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            menu.classList.remove('active');
-        });
-    });
-
-    // Fecha o menu ao clicar fora
-    document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-            menuToggle.classList.remove('active');
-            menu.classList.remove('active');
-        }
-    });
-}
-
-/* ============================================================
    ENVIO DO FORMULÁRIO (INTEGRAÇÃO FUTURA GOOGLE SHEETS)
 ============================================================ */
-const formContato = document.querySelector('#contato form');
+const formContato = document.querySelector('#form-contato');
 
 if (formContato) {
     formContato.addEventListener('submit', function(e) {
