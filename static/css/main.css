@@ -191,24 +191,40 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   FUNDOS
+   FUNDOS — fundo1.png e fundo2.png alternados
 ============================================================ */
 
 .fundo1 {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e8ede4 100%);
+    background: url("../imagens/fundo1.png") center center / cover no-repeat;
+    background-attachment: fixed;
     padding: 90px 0;
     position: relative;
 }
 
 .fundo2 {
-    background: linear-gradient(135deg, #fafbf6 0%, #f0f4e8 100%);
+    background: url("../imagens/fundo2.png") center center / cover no-repeat;
+    background-attachment: fixed;
     padding: 90px 0;
     position: relative;
 }
 
-.fundo-branco {
-    background: var(--branco);
-    padding: 90px 0;
+/* Overlay sutil para melhorar legibilidade */
+.fundo1::before,
+.fundo2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    pointer-events: none;
+}
+
+.fundo1 .container,
+.fundo2 .container {
+    position: relative;
+    z-index: 1;
 }
 
 /* ============================================================
@@ -420,7 +436,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   PROFISSIONAIS
+   PROFISSIONAIS - ATUALIZADO COM FOTOS REAIS
 ============================================================ */
 
 .profissionais {
@@ -453,20 +469,19 @@ p, li, input, textarea, button {
 }
 
 .profissional-foto {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto 20px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--verde), var(--dourado));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 4px solid var(--verde);
 }
 
-.profissional-foto i {
-    font-size: 4rem;
-    color: var(--branco);
+.profissional-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .profissional-card h3 {
@@ -563,7 +578,7 @@ p, li, input, textarea, button {
     margin: 40px auto 0;
     padding: 45px;
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     transition: .3s ease;
@@ -754,8 +769,15 @@ p, li, input, textarea, button {
     font-size: 0.95rem;
 }
 
-.footer strong {
+.footer a {
     color: var(--verde);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--dourado);
 }
 
 /* ============================================================
@@ -819,6 +841,12 @@ p, li, input, textarea, button {
 ============================================================ */
 
 @media (max-width: 768px) {
+    /* Desabilita parallax no mobile */
+    .fundo1,
+    .fundo2 {
+        background-attachment: scroll;
+    }
+
     /* Header mobile */
     .header-container {
         flex-direction: column;
