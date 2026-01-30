@@ -334,6 +334,14 @@ p, li, input, textarea, button {
     text-align: center;
 }
 
+.quem-somos h2 {
+    text-align: center;
+}
+
+.quem-somos .subtitulo {
+    text-align: center;
+}
+
 .quem-somos-content {
     width: 90%;
     max-width: 900px;
@@ -347,12 +355,18 @@ p, li, input, textarea, button {
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
 }
 
+/* Parágrafos JUSTIFICADOS (exceto subtítulo) */
 .quem-somos p {
     margin-bottom: 22px;
     font-size: 1.1rem;
     line-height: 1.9;
     color: #444;
     text-align: justify;
+}
+
+/* SUBTÍTULO CENTRALIZADO (mais específico) */
+.quem-somos .subtitulo {
+    text-align: center !important;
 }
 
 /* Missão, Visão e Valores */
