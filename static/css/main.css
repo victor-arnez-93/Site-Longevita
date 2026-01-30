@@ -1401,39 +1401,106 @@ p, li, input, textarea, button {
         max-width: 500px;
     }
 
-    /* Carrossel mobile: cards ainda menores */
+    /* ===== CARROSSEL MOBILE: CARDS MENORES E CENTRALIZADOS ===== */
     .carrossel-wrapper {
-        padding: 0 50px;
+        padding: 0 55px; /* Espaço para os botões */
     }
 
     .carrossel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
     }
 
     .atividade-card {
-        min-width: 240px;
+        min-width: 200px; /* Diminuído de 240px */
+        max-width: 200px;
+        padding: 15px; /* Diminuído */
     }
 
-    /* Equipe gestora: 2 colunas mobile */
+    .atividade-card img {
+        height: 140px; /* Diminuído */
+        object-fit: cover;
+    }
+
+    .atividade-card h3 {
+        font-size: 1rem; /* Diminuído */
+        margin: 12px 0 8px;
+        text-align: center;
+    }
+
+    .atividade-card p {
+        font-size: 0.85rem; /* Diminuído */
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    /* ===== EQUIPE GESTORA: 2 COLUNAS MOBILE COM VISIBILIDADE ===== */
     .profissionais-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+        padding: 0 15px; /* Adiciona padding lateral */
+    }
+
+    .profissional-card {
+        background: white; /* Garante fundo branco */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 1 !important; /* Força visibilidade */
+        visibility: visible !important;
     }
 
     .profissional-foto {
         width: 100px;
         height: 100px;
+        margin-bottom: 12px;
     }
 
     .iniciais {
         font-size: 2rem;
     }
 
-    /* Equipe multi: 2 colunas mobile */
+    .profissional-card h3 {
+        font-size: 1rem;
+        text-align: center;
+        margin: 8px 0 4px;
+    }
+
+    .profissional-card p {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    /* ===== EQUIPE MULTIDISCIPLINAR: 2 COLUNAS MOBILE COM VISIBILIDADE ===== */
     .equipe-multi-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 0 15px; /* Adiciona padding lateral */
+    }
+
+    .equipe-card {
+        opacity: 1 !important; /* Força visibilidade */
+        visibility: visible !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .equipe-card .icone-wrapper {
+        margin-bottom: 12px;
+    }
+
+    .equipe-card h3 {
+        font-size: 0.95rem;
+        text-align: center;
+        margin: 8px 0 6px;
+    }
+
+    .equipe-card p {
+        font-size: 0.8rem;
+        text-align: center;
+        line-height: 1.4;
     }
 
     /* Espaços: 1 coluna mobile */
@@ -1458,7 +1525,7 @@ p, li, input, textarea, button {
         grid-template-columns: 1fr;
     }
 
-    /* Contato mobile */
+    /* ===== CONTATO MOBILE: CENTRALIZADO ===== */
     .form-contato {
         padding: 35px 25px;
     }
@@ -1466,6 +1533,20 @@ p, li, input, textarea, button {
     .contato-info {
         flex-direction: column;
         gap: 20px;
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .contato-info-item {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centraliza o conteúdo */
+        gap: 10px;
+        width: 100%;
+    }
+
+    .contato-info-item i {
+        flex-shrink: 0; /* Impede que o ícone encolha */
     }
 
     /* Botões flutuantes mobile */
@@ -1497,13 +1578,27 @@ p, li, input, textarea, button {
 }
 
 @media (max-width: 480px) {
-    /* Equipe: 1 coluna em telas muito pequenas */
+    /* ===== EQUIPE: 1 COLUNA EM TELAS MUITO PEQUENAS ===== */
     .profissionais-grid {
         grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     .equipe-multi-grid {
         grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Carrossel ainda menor em telas pequenas */
+    .atividade-card {
+        min-width: 180px;
+        max-width: 180px;
+    }
+
+    .atividade-card img {
+        height: 120px;
     }
 
     .hero-card h1 {
@@ -1514,3 +1609,4 @@ p, li, input, textarea, button {
         font-size: 1.8rem;
     }
 }
+
