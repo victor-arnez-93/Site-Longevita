@@ -38,25 +38,24 @@ body {
 }
 
 /* ============================================================
-   TIPOGRAFIA
+   TIPOGRAFIA (TUDO CENTRALIZADO)
 ============================================================ */
 h1, h2, h3 {
     font-family: var(--font-titulo);
     color: var(--marrom);
     font-weight: 700;
     letter-spacing: 0.5px;
+    text-align: center;
 }
 
 h2 {
     font-size: 2.8rem;
     margin-bottom: 15px;
-    text-align: center;
 }
 
 h3 {
     font-size: 1.5rem;
     margin-bottom: 12px;
-    text-align: center;
 }
 
 .subtitulo {
@@ -129,6 +128,7 @@ p, li, input, textarea, button {
     letter-spacing: 1.2px;
     font-family: var(--font-titulo);
     color: var(--marrom);
+    text-align: left;
 }
 
 .menu {
@@ -266,20 +266,41 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   HERO (CARD MAIOR E CENTRALIZADO)
+   HERO (FULLSCREEN COM IMAGEM DE FUNDO SUAVE)
 ============================================================ */
 .hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.30)),
+                url("../imagens/img1.png") center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 85vh;
+    min-height: 100vh;
+    padding: 0;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.4);
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.40);
     padding: 70px 60px;
     border-radius: 24px;
-    max-width: 950px;
+    max-width: 1000px;
+    margin: 0 auto;
     text-align: center;
     box-shadow: 0 12px 40px rgba(0,0,0,0.12);
     backdrop-filter: blur(10px);
@@ -321,7 +342,8 @@ p, li, input, textarea, button {
 
 .logo-grande {
     width: 200px;
-    margin: 30px 0;
+    margin: 30px auto;
+    display: block;
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
 }
 
@@ -393,7 +415,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   SERVIÇOS
+   SERVIÇOS (BOTÕES ALINHADOS NA MESMA ALTURA)
 ============================================================ */
 .servicos {
     text-align: center;
@@ -416,12 +438,19 @@ p, li, input, textarea, button {
     transition: all 0.4s ease;
     text-align: center;
     box-shadow: var(--sombra-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .servico-card:hover {
     transform: translateY(-8px);
     border-color: var(--verde);
     box-shadow: var(--sombra-hover);
+}
+
+.servico-conteudo {
+    flex: 1;
 }
 
 .icon-servico {
@@ -443,8 +472,12 @@ p, li, input, textarea, button {
     text-align: justify;
 }
 
+.servico-card .button-primary {
+    margin-top: 20px;
+}
+
 /* ============================================================
-   CARROSSEL DE ATIVIDADES (CARDS MENORES COM FOTOS)
+   CARROSSEL DE ATIVIDADES (MENOR E MAIS RÁPIDO)
 ============================================================ */
 .atividades {
     text-align: center;
@@ -474,7 +507,7 @@ p, li, input, textarea, button {
     will-change: transform;
 }
 
-/* Cards menores com fotos */
+/* Cards MENORES */
 .atividade-card {
     background: var(--branco);
     padding: 0;
@@ -483,7 +516,7 @@ p, li, input, textarea, button {
     transition: all 0.4s ease;
     box-shadow: var(--sombra-card);
     text-align: center;
-    min-width: 320px;
+    min-width: 260px;
     flex-shrink: 0;
     overflow: hidden;
     position: relative;
@@ -498,9 +531,10 @@ p, li, input, textarea, button {
 /* Imagem da atividade */
 .atividade-img {
     width: 100%;
-    height: 180px;
+    height: 150px;
     overflow: hidden;
     border-radius: 16px 16px 0 0;
+    position: relative;
 }
 
 .atividade-img img {
@@ -514,25 +548,45 @@ p, li, input, textarea, button {
     transform: scale(1.1);
 }
 
-/* Conteúdo do card */
+/* Informações (texto que fica branco no hover) */
+.atividade-info {
+    padding: 20px;
+    transition: all 0.4s ease;
+}
+
+.atividade-card:hover .atividade-info {
+    background: rgba(150, 183, 75, 0.95);
+    color: var(--branco);
+}
+
+.atividade-card:hover .atividade-info h3,
+.atividade-card:hover .atividade-info p {
+    color: var(--branco);
+}
+
+.atividade-card:hover .icon-atividade {
+    color: var(--branco);
+}
+
 .icon-atividade {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--verde);
-    margin: 20px 0 15px;
+    margin-bottom: 10px;
+    transition: color 0.4s ease;
 }
 
 .atividade-card h3 {
     color: var(--marrom);
-    margin-bottom: 12px;
-    font-size: 1.3rem;
-    padding: 0 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    transition: color 0.4s ease;
 }
 
 .atividade-card p {
     color: #555;
-    line-height: 1.7;
-    font-size: 0.9rem;
-    padding: 0 20px 25px;
+    line-height: 1.6;
+    font-size: 0.85rem;
+    transition: color 0.4s ease;
 }
 
 .carrossel-btn {
@@ -615,7 +669,7 @@ p, li, input, textarea, button {
     object-fit: cover;
 }
 
-/* Placeholder com iniciais */
+/* Placeholder com iniciais (TODOS VERDE) */
 .profissional-placeholder {
     background: linear-gradient(135deg, var(--verde), var(--dourado));
     display: flex;
@@ -650,7 +704,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   EQUIPE MULTIDISCIPLINAR (HOVER COM FOTO)
+   EQUIPE MULTIDISCIPLINAR (DESIGN IGUAL NOSSO ESPAÇO)
 ============================================================ */
 .equipe-multi-grid {
     display: grid;
@@ -664,7 +718,7 @@ p, li, input, textarea, button {
 
 .multi-item {
     background: var(--branco);
-    padding: 0;
+    padding: 30px 20px;
     border-radius: 15px;
     border: 2px solid transparent;
     transition: all 0.4s ease;
@@ -673,6 +727,7 @@ p, li, input, textarea, button {
     overflow: hidden;
     position: relative;
     height: 200px;
+    text-align: center;
 }
 
 .multi-item:hover {
@@ -681,16 +736,16 @@ p, li, input, textarea, button {
     box-shadow: var(--sombra-hover);
 }
 
-/* Foto da atividade (oculta inicialmente) */
+/* FOTO (fica escondida, aparece no hover como fundo) */
 .multi-foto {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
     opacity: 0;
     transition: opacity 0.4s ease;
-    z-index: 1;
 }
 
 .multi-foto img {
@@ -699,63 +754,72 @@ p, li, input, textarea, button {
     object-fit: cover;
 }
 
-/* Informações (visíveis inicialmente) */
-.multi-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 25px;
-    background: var(--branco);
-    transition: opacity 0.4s ease;
-    z-index: 2;
-}
-
-/* Hover: mostra foto, esconde info */
 .multi-item:hover .multi-foto {
     opacity: 1;
 }
 
-.multi-item:hover .multi-info {
-    opacity: 0;
+/* INFO (ícone + texto) */
+.multi-info {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 100%;
 }
 
-/* Mobile: clique/toque para alternar */
-.multi-item.active .multi-foto {
-    opacity: 1;
-}
-
-.multi-item.active .multi-info {
-    opacity: 0;
-}
-
+/* ÍCONE (colorido normal, branco no hover) */
 .multi-info i {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--laranja);
-    flex-shrink: 0;
+    transition: color 0.4s ease;
 }
 
+.multi-item:hover .multi-info i {
+    color: var(--branco);
+}
+
+/* NOME E FUNÇÃO (coloridos normal, branco no hover) */
 .multi-info h4 {
     color: var(--marrom);
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    font-size: 1.2rem;
+    margin: 0;
     font-family: var(--font-titulo);
+    transition: color 0.4s ease;
+    text-align: center;
+}
+
+.multi-item:hover .multi-info h4 {
+    color: var(--branco);
 }
 
 .multi-info p {
     color: var(--verde);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
+    margin: 0;
+    transition: color 0.4s ease;
+    text-align: center;
+}
+
+.multi-item:hover .multi-info p {
+    color: var(--branco);
 }
 
 /* ============================================================
-   NOSSO ESPAÇO
+   NOSSO ESPAÇO (2 LINHAS × 2 COLUNAS - FOTOS VISÍVEIS)
 ============================================================ */
 .espacos {
+    text-align: center;
+}
+
+.espacos h2 {
+    text-align: center;
+}
+
+.espacos .subtitulo {
     text-align: center;
 }
 
@@ -798,42 +862,70 @@ p, li, input, textarea, button {
     display: block;
 }
 
+/* GRID 2×2 */
 .espacos-galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-top: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* CARD COM IMAGEM JÁ VISÍVEL */
 .espaco-item {
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 300px;
+    box-shadow: var(--sombra-card);
 }
 
 .espaco-item:hover {
     transform: translateY(-8px);
+    box-shadow: var(--sombra-hover);
 }
 
+/* PLACEHOLDER COM IMAGEM DE FUNDO + GRADIENTE */
 .espaco-placeholder {
-    background: linear-gradient(135deg, var(--verde), var(--laranja));
-    height: 250px;
-    border-radius: 15px;
+    background: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)),
+                linear-gradient(135deg, var(--verde), var(--laranja));
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    border-radius: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
-    box-shadow: var(--sombra-card);
+    gap: 20px;
+    transition: all 0.4s ease;
+    padding: 30px;
+    margin-bottom: 0;
 }
 
+.espaco-item:hover .espaco-placeholder {
+    background: linear-gradient(rgba(150, 183, 75, 0.85), rgba(150, 183, 75, 0.85));
+}
+
+/* ÍCONE (sempre branco) */
 .espaco-placeholder i {
     font-size: 5rem;
     color: var(--branco);
+    transition: all 0.4s ease;
 }
 
+/* TEXTO (sempre branco, centralizado) */
 .espaco-item p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    color: var(--marrom);
+    color: var(--branco);
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* Lightbox */
@@ -1141,7 +1233,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   RESPONSIVO
+   RESPONSIVO MOBILE
 ============================================================ */
 @media (max-width: 1024px) {
     /* Equipe gestora: 3 colunas em tablets */
@@ -1152,6 +1244,15 @@ p, li, input, textarea, button {
     /* Equipe multi: 3 colunas */
     .equipe-multi-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Espaços: 2 colunas + 2 embaixo */
+    .espacos-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .espacos-galeria .espaco-item:nth-child(4) {
+        grid-column: auto;
     }
 }
 
@@ -1167,7 +1268,7 @@ p, li, input, textarea, button {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 12px 5%;
+        padding: 0;
         position: relative;
     }
 
@@ -1188,7 +1289,7 @@ p, li, input, textarea, button {
         display: flex;
     }
 
-    /* Menu mobile */
+    /* Menu mobile - RECOLHIDO POR PADRÃO */
     .menu {
         position: fixed;
         top: 80px;
@@ -1206,6 +1307,7 @@ p, li, input, textarea, button {
         z-index: 1000;
     }
 
+    /* Menu mobile ABERTO */
     .menu.active {
         max-height: 600px;
         opacity: 1;
@@ -1240,7 +1342,7 @@ p, li, input, textarea, button {
 
     /* Hero mobile */
     .hero {
-        min-height: 70vh;
+        min-height: 100vh;
         padding: 40px 0;
     }
 
@@ -1285,7 +1387,7 @@ p, li, input, textarea, button {
         max-width: 500px;
     }
 
-    /* Carrossel mobile: 1-2 cards */
+    /* Carrossel mobile: cards ainda menores */
     .carrossel-wrapper {
         padding: 0 50px;
     }
@@ -1297,7 +1399,7 @@ p, li, input, textarea, button {
     }
 
     .atividade-card {
-        min-width: 280px;
+        min-width: 240px;
     }
 
     /* Equipe gestora: 2 colunas mobile */
@@ -1320,17 +1422,21 @@ p, li, input, textarea, button {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Espaços mobile */
+    /* Espaços: 1 coluna mobile */
+    .espacos-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .espacos-galeria .espaco-item:nth-child(4) {
+        grid-column: auto;
+    }
+
     .espacos-tabs {
         flex-direction: column;
     }
 
     .tab-btn {
         width: 100%;
-    }
-
-    .espacos-galeria {
-        grid-template-columns: 1fr;
     }
 
     /* Localização mobile */
@@ -1384,5 +1490,13 @@ p, li, input, textarea, button {
 
     .equipe-multi-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero-card h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
     }
 }

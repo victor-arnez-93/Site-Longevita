@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // ============================================================
-    // MENU MOBILE TOGGLE
+    // MENU MOBILE TOGGLE (ABRE/FECHA AO CLICAR)
     // ============================================================
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================================
-    // CARROSSEL INFINITO COM DRAG/SWIPE
+    // CARROSSEL INFINITO (MAIS LENTO, PAUSA NO HOVER/CLIQUE)
     // ============================================================
     const track = document.querySelector('.carrossel-track');
     const prevBtn = document.querySelector('.carrossel-btn.prev');
@@ -127,6 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentTranslate = 0;
         let prevTranslate = 0;
         let animationID = 0;
+        let autoPlayInterval;
+        let isPaused = false;
 
         // Clone os cards para loop infinito
         const cloneCount = 3;
@@ -136,8 +138,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Auto-play
-        let autoPlayInterval = setInterval(moveNext, 3500);
+        // Auto-play MAIS LENTO (5 segundos)
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                if (!isPaused) {
+                    moveNext();
+                }
+            }, 5000);
+        }
+
+        startAutoPlay();
 
         // Botões
         nextBtn.addEventListener('click', () => {
@@ -198,8 +208,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function resetAutoPlay() {
             clearInterval(autoPlayInterval);
-            autoPlayInterval = setInterval(moveNext, 3500);
+            startAutoPlay();
         }
+
+        // PAUSA AO PASSAR MOUSE (DESKTOP)
+        track.addEventListener('mouseenter', () => {
+            isPaused = true;
+        });
+
+        track.addEventListener('mouseleave', () => {
+            isPaused = false;
+        });
 
         // Drag com mouse
         track.addEventListener('mousedown', dragStart);
@@ -207,10 +226,21 @@ document.addEventListener('DOMContentLoaded', function() {
         track.addEventListener('mouseup', dragEnd);
         track.addEventListener('mouseleave', dragEnd);
 
-        // Touch para mobile
-        track.addEventListener('touchstart', dragStart);
+        // PAUSA AO CLICAR/SEGURAR (MOBILE)
+        track.addEventListener('touchstart', (e) => {
+            isPaused = true;
+            dragStart(e);
+        });
+
         track.addEventListener('touchmove', drag);
-        track.addEventListener('touchend', dragEnd);
+
+        track.addEventListener('touchend', (e) => {
+            dragEnd(e);
+            // Volta a rodar após 3 segundos
+            setTimeout(() => {
+                isPaused = false;
+            }, 3000);
+        });
 
         function dragStart(e) {
             isDragging = true;
@@ -253,15 +283,6 @@ document.addEventListener('DOMContentLoaded', function() {
             track.style.transform = `translateX(${currentTranslate}px)`;
             if (isDragging) requestAnimationFrame(animation);
         }
-
-        // Pause auto-play ao passar mouse
-        track.addEventListener('mouseenter', () => {
-            clearInterval(autoPlayInterval);
-        });
-
-        track.addEventListener('mouseleave', () => {
-            resetAutoPlay();
-        });
     }
 
     // ============================================================

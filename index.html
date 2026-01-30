@@ -30,6 +30,7 @@
         <div class="header-container">
             <div class="logo-area">
                 <img src="static/imagens/logo2.png" alt="Logo Longevitá" class="logo">
+                <h1 class="titulo-clinica">LONGEVITÁ</h1>
             </div>
 
             <nav class="menu">
@@ -52,9 +53,9 @@
     </header>
 
     <!-- ============================================================
-         HERO / HOME
+         HERO / HOME (FULLSCREEN COM IMAGEM DE FUNDO)
     ============================================================ -->
-    <section id="home" class="hero fundo1">
+    <section id="home" class="hero">
         <div class="container">
             <div class="hero-card animar">
                 <h1>Conectando gerações com cuidado, respeito e qualidade de vida</h1>
@@ -127,7 +128,7 @@
     </section>
 
     <!-- ============================================================
-         SERVIÇOS (2 CARDS)
+         SERVIÇOS (2 CARDS COM BOTÕES ALINHADOS)
     ============================================================ -->
     <section id="servicos" class="servicos fundo1">
         <div class="container animar">
@@ -137,12 +138,14 @@
             <div class="servicos-grid">
                 <!-- Centro Dia 60+ -->
                 <div class="servico-card">
-                    <div class="icon-servico">
-                        <i class="fas fa-sun"></i>
+                    <div class="servico-conteudo">
+                        <div class="icon-servico">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3>Centro Dia 60+</h3>
+                        <p>No Centro Dia 60+ desenvolvemos atividades planejadas que estimulam o corpo, a cognição e a sociabilidade, sempre respeitando o ritmo de cada pessoa.</p>
+                        <p>Aqui, o idoso passa o dia sob cuidados especializados e retorna ao lar ao final da tarde, com rotina rica em experiências significativas: terapias, oficinas, exercícios e momentos de convivência que promovem bem-estar e autonomia.</p>
                     </div>
-                    <h3>Centro Dia 60+</h3>
-                    <p>No Centro Dia 60+ desenvolvemos atividades planejadas que estimulam o corpo, a cognição e a sociabilidade, sempre respeitando o ritmo de cada pessoa.</p>
-                    <p>Aqui, o idoso passa o dia sob cuidados especializados e retorna ao lar ao final da tarde, com rotina rica em experiências significativas: terapias, oficinas, exercícios e momentos de convivência que promovem bem-estar e autonomia.</p>
                     <a href="#contato" class="button-primary">
                         <i class="fas fa-info-circle"></i> Saiba Mais
                     </a>
@@ -150,12 +153,14 @@
 
                 <!-- Residencial Sênior -->
                 <div class="servico-card">
-                    <div class="icon-servico">
-                        <i class="fas fa-house-user"></i>
+                    <div class="servico-conteudo">
+                        <div class="icon-servico">
+                            <i class="fas fa-house-user"></i>
+                        </div>
+                        <h3>Residencial Sênior</h3>
+                        <p>Nosso Residencial Sênior oferece um ambiente seguro, acolhedor e adaptado para uma vida com conforto, dignidade e cuidado integral 24h.</p>
+                        <p>Com equipe multidisciplinar, acompanhamos saúde, mobilidade, alimentação e socialização, sempre com foco na qualidade de vida e no respeito às histórias pessoais de quem escolhe viver conosco.</p>
                     </div>
-                    <h3>Residencial Sênior</h3>
-                    <p>Nosso Residencial Sênior oferece um ambiente seguro, acolhedor e adaptado para uma vida com conforto, dignidade e cuidado integral 24h.</p>
-                    <p>Com equipe multidisciplinar, acompanhamos saúde, mobilidade, alimentação e socialização, sempre com foco na qualidade de vida e no respeito às histórias pessoais de quem escolhe viver conosco.</p>
                     <a href="#contato" class="button-primary">
                         <i class="fas fa-info-circle"></i> Saiba Mais
                     </a>
@@ -165,7 +170,7 @@
     </section>
 
     <!-- ============================================================
-         DESTAQUES & ATIVIDADES (CARROSSEL INFINITO COM FOTOS)
+         DESTAQUES & ATIVIDADES (CARROSSEL MENOR E MAIS RÁPIDO)
     ============================================================ -->
     <section id="destaques" class="atividades fundo2">
         <div class="container animar">
@@ -184,11 +189,13 @@
                             <div class="atividade-img">
                                 <img src="static/imagens/imgartesanato.png" alt="Artesanato">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-palette"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h3>Artesanato</h3>
+                                <p>Criação manual como experiência de foco, satisfação e conexão com o fazer.</p>
                             </div>
-                            <h3>Artesanato</h3>
-                            <p>Criação manual como experiência de foco, satisfação e conexão com o fazer.</p>
                         </div>
 
                         <!-- Atividade 2 - Arteterapia -->
@@ -196,11 +203,13 @@
                             <div class="atividade-img">
                                 <img src="static/imagens/imgarteterapia.png" alt="Arteterapia">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-paint-brush"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h3>Arteterapia</h3>
+                                <p>Processos terapêuticos que utilizam a arte como caminho para equilíbrio emocional e significado.</p>
                             </div>
-                            <h3>Arteterapia</h3>
-                            <p>Processos terapêuticos que utilizam a arte como caminho para equilíbrio emocional e significado.</p>
                         </div>
 
                         <!-- Atividade 3 - Atividade Física -->
@@ -208,11 +217,13 @@
                             <div class="atividade-img">
                                 <img src="static/imagens/imgedfisicadanca.png" alt="Atividade Física">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-dumbbell"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <h3>Atividade Física</h3>
+                                <p>Programas personalizados que sustentam vitalidade, funcionalidade e longevidade ativa.</p>
                             </div>
-                            <h3>Atividade Física</h3>
-                            <p>Programas personalizados que sustentam vitalidade, funcionalidade e longevidade ativa.</p>
                         </div>
 
                         <!-- Atividade 4 - Bingo -->
@@ -220,11 +231,13 @@
                             <div class="atividade-img">
                                 <img src="static/imagens/imgartesanato.png" alt="Bingo">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-circle-dot"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-circle-dot"></i>
+                                </div>
+                                <h3>Bingo</h3>
+                                <p>Momentos de convivência cuidadosamente conduzidos, unindo estímulo cognitivo e prazer social.</p>
                             </div>
-                            <h3>Bingo</h3>
-                            <p>Momentos de convivência cuidadosamente conduzidos, unindo estímulo cognitivo e prazer social.</p>
                         </div>
 
                         <!-- Atividade 5 - Dança -->
@@ -232,71 +245,83 @@
                             <div class="atividade-img">
                                 <img src="static/imagens/imgedfisicadanca.png" alt="Dança">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-music"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <h3>Dança</h3>
+                                <p>Expressão refinada do movimento, promovendo leveza, prazer e bem-estar integral.</p>
                             </div>
-                            <h3>Dança</h3>
-                            <p>Expressão refinada do movimento, promovendo leveza, prazer e bem-estar integral.</p>
                         </div>
 
                         <!-- Atividade 6 - Fisioterapia -->
                         <div class="atividade-card">
                             <div class="atividade-img">
-                                <img src="static/imagens/imgterapiaocupacional.png" alt="Fisioterapia">
+                                <img src="static/imagens/imgfisio.png" alt="Fisioterapia">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-person-walking"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-person-walking"></i>
+                                </div>
+                                <h3>Fisioterapia</h3>
+                                <p>Cuidado clínico de excelência, voltado à preservação da mobilidade, do conforto e da autonomia.</p>
                             </div>
-                            <h3>Fisioterapia</h3>
-                            <p>Cuidado clínico de excelência, voltado à preservação da mobilidade, do conforto e da autonomia.</p>
                         </div>
 
                         <!-- Atividade 7 - Musicoterapia -->
                         <div class="atividade-card">
                             <div class="atividade-img">
-                                <img src="static/imagens/imgarteterapia.png" alt="Musicoterapia">
+                                <img src="static/imagens/imgmusico.png" alt="Musicoterapia">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-guitar"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-guitar"></i>
+                                </div>
+                                <h3>Musicoterapia</h3>
+                                <p>A música como linguagem terapêutica para acessar memórias, emoções e vínculos afetivos.</p>
                             </div>
-                            <h3>Musicoterapia</h3>
-                            <p>A música como linguagem terapêutica para acessar memórias, emoções e vínculos afetivos.</p>
                         </div>
 
                         <!-- Atividade 8 - Oficina da Memória -->
                         <div class="atividade-card">
                             <div class="atividade-img">
-                                <img src="static/imagens/imgpsicologia.png" alt="Oficina da Memória">
+                                <img src="static/imagens/imgofmemoria.png" alt="Oficina da Memória">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-brain"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>Oficina da Memória</h3>
+                                <p>Estímulos cognitivos estruturados para preservar funções mentais e autonomia.</p>
                             </div>
-                            <h3>Oficina da Memória</h3>
-                            <p>Estímulos cognitivos estruturados para preservar funções mentais e autonomia.</p>
                         </div>
 
                         <!-- Atividade 9 - Oficina de Culinária -->
                         <div class="atividade-card">
                             <div class="atividade-img">
-                                <img src="static/imagens/imgartesanato.png" alt="Oficina de Culinária">
+                                <img src="static/imagens/imgculinaria.png" alt="Oficina de Culinária">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-utensils"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h3>Oficina de Culinária</h3>
+                                <p>Experiências sensoriais que resgatam memórias, sabores e o prazer de compartilhar.</p>
                             </div>
-                            <h3>Oficina de Culinária</h3>
-                            <p>Experiências sensoriais que resgatam memórias, sabores e o prazer de compartilhar.</p>
                         </div>
 
                         <!-- Atividade 10 - Pintura -->
                         <div class="atividade-card">
                             <div class="atividade-img">
-                                <img src="static/imagens/imgpinturatecido.png" alt="Pintura">
+                                <img src="static/imagens/imgarteterapia.png" alt="Pintura">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-image"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <h3>Pintura</h3>
+                                <p>Vivências artísticas que estimulam a sensibilidade, a cognição e a expressão pessoal.</p>
                             </div>
-                            <h3>Pintura</h3>
-                            <p>Vivências artísticas que estimulam a sensibilidade, a cognição e a expressão pessoal.</p>
                         </div>
 
                         <!-- Atividade 11 - Pilates -->
@@ -304,11 +329,13 @@
                             <div class="atividade-img">
                                 <img src="static/imagens/imgpilates.png" alt="Pilates">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-spa"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-spa"></i>
+                                </div>
+                                <h3>Pilates</h3>
+                                <p>Movimento consciente e preciso, com acompanhamento individualizado e atenção absoluta ao corpo.</p>
                             </div>
-                            <h3>Pilates</h3>
-                            <p>Movimento consciente e preciso, com acompanhamento individualizado e atenção absoluta ao corpo.</p>
                         </div>
 
                         <!-- Atividade 12 - Psicologia -->
@@ -316,23 +343,27 @@
                             <div class="atividade-img">
                                 <img src="static/imagens/imgpsicologia.png" alt="Psicologia">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-comments"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3>Psicologia</h3>
+                                <p>Vivências terapêuticas em grupo, conduzidas com escuta qualificada, promovendo reflexão, vínculo e bem-estar emocional.</p>
                             </div>
-                            <h3>Psicologia</h3>
-                            <p>Vivências terapêuticas em grupo, conduzidas com escuta qualificada, promovendo reflexão, vínculo e bem-estar emocional.</p>
                         </div>
 
                         <!-- Atividade 13 - Terapia Ocupacional -->
                         <div class="atividade-card">
                             <div class="atividade-img">
-                                <img src="static/imagens/imgterapiaocupacional.png" alt="Terapia Ocupacional">
+                                <img src="static/imagens/imgterapocupac.png" alt="Terapia Ocupacional">
                             </div>
-                            <div class="icon-atividade">
-                                <i class="fas fa-hands-helping"></i>
+                            <div class="atividade-info">
+                                <div class="icon-atividade">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h3>Terapia Ocupacional</h3>
+                                <p>Intervenções especializadas que mantêm independência e excelência nas atividades cotidianas.</p>
                             </div>
-                            <h3>Terapia Ocupacional</h3>
-                            <p>Intervenções especializadas que mantêm independência e excelência nas atividades cotidianas.</p>
                         </div>
                     </div>
                 </div>
@@ -357,10 +388,10 @@
             <h3 style="text-align: center; margin: 60px 0 40px; font-size: 2rem; color: var(--marrom);">Equipe Gestora e Técnica</h3>
 
             <div class="profissionais-grid">
-                <!-- Dr. Cyro -->
+                <!-- Dr. Cyro (AGORA COM PLACEHOLDER VERDE) -->
                 <div class="profissional-card">
-                    <div class="profissional-foto">
-                        <img src="static/imagens/foto1.jpeg" alt="Dr. Cyro Pereira">
+                    <div class="profissional-foto profissional-placeholder">
+                        <span class="iniciais">CP</span>
                     </div>
                     <h3>Dr. Cyro Pereira</h3>
                     <p class="cargo">Sócio Proprietário</p>
@@ -438,7 +469,7 @@
                 </div>
             </div>
 
-            <!-- EQUIPE MULTIDISCIPLINAR COM FOTOS EM HOVER -->
+            <!-- EQUIPE MULTIDISCIPLINAR COM FOTOS EM HOVER (TEXTO FICA BRANCO) -->
             <h3 style="text-align: center; margin: 80px 0 40px; font-size: 2rem; color: var(--marrom);">Equipe Multidisciplinar</h3>
 
             <div class="equipe-multi-grid">
@@ -543,7 +574,7 @@
                 <!-- Gustavo Vaz - Dança -->
                 <div class="multi-item">
                     <div class="multi-foto">
-                        <img src="static/imagens/imgedfisicadanca.png" alt="Dança">
+                        <img src="static/imagens/imgdanca.png" alt="Dança">
                     </div>
                     <div class="multi-info">
                         <i class="fas fa-music"></i>
@@ -557,91 +588,91 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         NOSSO ESPAÇO (NOVA SEÇÃO)
-    ============================================================ -->
-    <section id="espacos" class="espacos fundo2">
-        <div class="container animar">
-            <h2>Nosso Espaço</h2>
-            <p class="subtitulo">Ambientes acolhedores e adaptados para conforto e bem-estar</p>
+ <!-- ============================================================
+     NOSSO ESPAÇO (MELHORADO: 2×2 COM IMAGENS VISÍVEIS)
+============================================================ -->
+<section id="espacos" class="espacos fundo2">
+    <div class="container animar">
+        <h2>Nosso Espaço</h2>
+        <p class="subtitulo">Ambientes acolhedores e adaptados para conforto e bem-estar</p>
 
-            <!-- Abas -->
-            <div class="espacos-tabs">
-                <button class="tab-btn active" data-tab="premium">
-                    <i class="fas fa-building"></i> Longevitá Premium (Junqueira)
-                </button>
-                <button class="tab-btn" data-tab="exclusive">
-                    <i class="fas fa-building"></i> Longevitá Exclusive (Waldemar Ferreira)
-                </button>
-            </div>
+        <!-- Abas -->
+        <div class="espacos-tabs">
+            <button class="tab-btn active" data-tab="premium">
+                <i class="fas fa-building"></i> Longevitá Premium (Junqueira)
+            </button>
+            <button class="tab-btn" data-tab="exclusive">
+                <i class="fas fa-building"></i> Longevitá Exclusive (Waldemar Ferreira)
+            </button>
+        </div>
 
-            <!-- Conteúdo Premium -->
-            <div class="tab-content active" id="tab-premium">
-                <div class="espacos-galeria">
-                    <div class="espaco-item" data-img="static/imagens/premium-sala-tv.jpg">
-                        <div class="espaco-placeholder">
-                            <i class="fas fa-tv"></i>
-                        </div>
+        <!-- Conteúdo Premium -->
+        <div class="tab-content active" id="tab-premium">
+            <div class="espacos-galeria">
+                <div class="espaco-item" data-img="static/imagens/imgsalatv1.png">
+                    <div class="espaco-placeholder" style="background-image: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)), url('static/imagens/imgsalatv1.png');">
+                        <i class="fas fa-tv"></i>
                         <p>Sala de TV</p>
-                    </div>
-
-                    <div class="espaco-item" data-img="static/imagens/premium-area-externa.jpg">
-                        <div class="espaco-placeholder">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <p>Área Externa</p>
-                    </div>
-
-                    <div class="espaco-item" data-img="static/imagens/premium-refeicao.jpg">
-                        <div class="espaco-placeholder">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <p>Sala de Refeições</p>
-                    </div>
-
-                    <div class="espaco-item" data-img="static/imagens/premium-quarto.jpg">
-                        <div class="espaco-placeholder">
-                            <i class="fas fa-bed"></i>
-                        </div>
-                        <p>Quartos</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Conteúdo Exclusive -->
-            <div class="tab-content" id="tab-exclusive">
-                <div class="espacos-galeria">
-                    <div class="espaco-item" data-img="static/imagens/exclusive-sala-tv.jpg">
-                        <div class="espaco-placeholder">
-                            <i class="fas fa-tv"></i>
-                        </div>
-                        <p>Sala de TV</p>
-                    </div>
-
-                    <div class="espaco-item" data-img="static/imagens/exclusive-area-externa.jpg">
-                        <div class="espaco-placeholder">
-                            <i class="fas fa-tree"></i>
-                        </div>
+                <div class="espaco-item" data-img="static/imagens/imgareaext.png">
+                    <div class="espaco-placeholder" style="background-image: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)), url('static/imagens/imgareaext.png');">
+                        <i class="fas fa-tree"></i>
                         <p>Área Externa</p>
                     </div>
+                </div>
 
-                    <div class="espaco-item" data-img="static/imagens/exclusive-refeicao.jpg">
-                        <div class="espaco-placeholder">
-                            <i class="fas fa-utensils"></i>
-                        </div>
+                <div class="espaco-item" data-img="static/imagens/imgrefeicoes.png">
+                    <div class="espaco-placeholder" style="background-image: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)), url('static/imagens/imgrefeicoes.png');">
+                        <i class="fas fa-utensils"></i>
                         <p>Sala de Refeições</p>
                     </div>
+                </div>
 
-                    <div class="espaco-item" data-img="static/imagens/exclusive-quarto.jpg">
-                        <div class="espaco-placeholder">
-                            <i class="fas fa-bed"></i>
-                        </div>
+                <div class="espaco-item" data-img="static/imagens/imgquartos1.png">
+                    <div class="espaco-placeholder" style="background-image: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)), url('static/imagens/imgquartos1.png');">
+                        <i class="fas fa-bed"></i>
                         <p>Quartos</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Conteúdo Exclusive -->
+        <div class="tab-content" id="tab-exclusive">
+            <div class="espacos-galeria">
+                <div class="espaco-item" data-img="static/imagens/imgsalatv2.png">
+                    <div class="espaco-placeholder" style="background-image: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)), url('static/imagens/imgsalatv2.png');">
+                        <i class="fas fa-tv"></i>
+                        <p>Sala de TV</p>
+                    </div>
+                </div>
+
+                <div class="espaco-item" data-img="static/imagens/imgareaext2.png">
+                    <div class="espaco-placeholder" style="background-image: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)), url('static/imagens/imgareaext2.png');">
+                        <i class="fas fa-tree"></i>
+                        <p>Área Externa</p>
+                    </div>
+                </div>
+
+                <div class="espaco-item" data-img="static/imagens/imgrefeicoes2.png">
+                    <div class="espaco-placeholder" style="background-image: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)), url('static/imagens/imgrefeicoes2.png');">
+                        <i class="fas fa-utensils"></i>
+                        <p>Sala de Refeições</p>
+                    </div>
+                </div>
+
+                <div class="espaco-item" data-img="static/imagens/imgquartos2.png">
+                    <div class="espaco-placeholder" style="background-image: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)), url('static/imagens/imgquartos2.png');">
+                        <i class="fas fa-bed"></i>
+                        <p>Quartos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Modal Lightbox para Espaços -->
     <div id="lightbox-espacos" class="lightbox">
