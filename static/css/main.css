@@ -1250,6 +1250,78 @@ p, li, input, textarea, button {
    RESPONSIVO MOBILE
 ============================================================ */
 @media (max-width: 1024px) {
+        /* ===== FORÇA EXIBIÇÃO DA EQUIPE MULTIDISCIPLINAR ===== */
+    #equipe-multi,
+    .equipe-multidisciplinar {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .equipe-multi-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        padding: 0 15px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .equipe-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: white !important;
+        padding: 20px 15px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+        height: auto !important;
+        min-height: 200px !important;
+    }
+
+    .equipe-card .icone-wrapper {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .equipe-card h3 {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 0.95rem !important;
+        text-align: center !important;
+        margin: 8px 0 6px !important;
+        color: var(--marrom) !important;
+    }
+
+    .equipe-card p {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 0.8rem !important;
+        text-align: center !important;
+        line-height: 1.4 !important;
+        color: #666 !important;
+    }
+
+    /* Desabilita hover no mobile para equipe multi */
+    .equipe-card:hover {
+        background: white !important;
+        background-image: none !important;
+    }
+
+    .equipe-card:hover h3,
+    .equipe-card:hover p,
+    .equipe-card:hover .icone-wrapper i {
+        color: var(--marrom) !important;
+    }
+
     /* Equipe gestora: 3 colunas em tablets */
     .profissionais-grid {
         grid-template-columns: repeat(3, 1fr);
