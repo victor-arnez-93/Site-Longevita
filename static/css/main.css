@@ -637,6 +637,7 @@ p, li, input, textarea, button {
 /* ============================================================
    PROFISSIONAIS (4 COLUNAS × 2 LINHAS - CARDS MENORES)
 ============================================================ */
+
 .profissionais {
     text-align: center;
 }
@@ -659,6 +660,9 @@ p, li, input, textarea, button {
     transition: all 0.4s ease;
     box-shadow: var(--sombra-card);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profissional-card:hover {
@@ -689,6 +693,8 @@ p, li, input, textarea, button {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .iniciais {
@@ -720,6 +726,7 @@ p, li, input, textarea, button {
 /* ============================================================
    EQUIPE MULTIDISCIPLINAR (DESIGN IGUAL NOSSO ESPAÇO)
 ============================================================ */
+
 .equipe-multi-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -742,6 +749,10 @@ p, li, input, textarea, button {
     position: relative;
     height: 200px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .multi-item:hover {
@@ -1299,12 +1310,10 @@ p, li, input, textarea, button {
         font-size: 1.3rem;
     }
 
-    /* Mostra botão hamburguer no mobile */
     .menu-toggle {
         display: flex;
     }
 
-    /* Menu mobile - RECOLHIDO POR PADRÃO */
     .menu {
         position: fixed;
         top: 80px;
@@ -1322,7 +1331,6 @@ p, li, input, textarea, button {
         z-index: 1000;
     }
 
-    /* Menu mobile ABERTO */
     .menu.active {
         max-height: 600px;
         opacity: 1;
@@ -1355,7 +1363,6 @@ p, li, input, textarea, button {
         width: calc(100% - 40px);
     }
 
-    /* Hero mobile */
     .hero {
         min-height: 100vh;
         padding: 40px 0;
@@ -1382,7 +1389,6 @@ p, li, input, textarea, button {
         font-size: 2.2rem;
     }
 
-    /* Quem somos mobile */
     .logo-grande {
         width: 150px;
     }
@@ -1391,7 +1397,6 @@ p, li, input, textarea, button {
         grid-template-columns: 1fr;
     }
 
-    /* Serviços mobile */
     .servicos-grid {
         flex-direction: column;
         align-items: center;
@@ -1402,7 +1407,7 @@ p, li, input, textarea, button {
         max-width: 500px;
     }
 
-    /* ===== CARROSSEL MOBILE: CARDS MENORES E CENTRALIZADOS ===== */
+    /* CARROSSEL */
     .carrossel-wrapper {
         padding: 0 55px;
     }
@@ -1442,49 +1447,47 @@ p, li, input, textarea, button {
         font-size: 2rem;
     }
 
-    /* ===== EQUIPE GESTORA: 2 COLUNAS MOBILE COM VISIBILIDADE ===== */
+    /* EQUIPE GESTORA - 2 COLUNAS */
     .profissionais-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 0 15px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        padding: 0 15px !important;
     }
 
     .profissional-card {
-        background: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        opacity: 1 !important;
-        visibility: visible !important;
+        background: white !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 25px 15px !important;
     }
 
     .profissional-foto {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 12px;
+        width: 100px !important;
+        height: 100px !important;
+        margin-bottom: 12px !important;
     }
 
     .iniciais {
-        font-size: 2rem;
+        font-size: 2rem !important;
     }
 
     .profissional-card h3 {
-        font-size: 1rem;
-        text-align: center;
-        margin: 8px 0 4px;
+        font-size: 1rem !important;
+        text-align: center !important;
+        margin: 8px 0 4px !important;
     }
 
     .profissional-card p {
-        font-size: 0.85rem;
-        text-align: center;
+        font-size: 0.85rem !important;
+        text-align: center !important;
     }
 
-    /* ===== EQUIPE MULTIDISCIPLINAR: 2 COLUNAS MOBILE - CORRIGIDO ===== */
+    /* EQUIPE MULTIDISCIPLINAR - 2 COLUNAS */
     .equipe-multi-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 20px !important;
         padding: 0 15px !important;
-        display: grid !important;
     }
 
     .multi-item {
@@ -1492,11 +1495,10 @@ p, li, input, textarea, button {
         min-height: 180px !important;
         padding: 25px 15px !important;
         display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
+        background: white !important;
     }
 
-    /* Desabilita foto de fundo no mobile */
+    /* DESABILITA FOTO DE FUNDO NO MOBILE */
     .multi-item .multi-foto {
         display: none !important;
     }
@@ -1504,11 +1506,6 @@ p, li, input, textarea, button {
     .multi-info {
         position: relative !important;
         z-index: 1 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 10px !important;
     }
 
     .multi-info i {
@@ -1519,29 +1516,34 @@ p, li, input, textarea, button {
     .multi-info h4 {
         font-size: 1rem !important;
         color: var(--marrom) !important;
-        text-align: center !important;
-        margin: 0 !important;
     }
 
     .multi-info p {
         font-size: 0.85rem !important;
         color: var(--verde) !important;
-        text-align: center !important;
-        margin: 0 !important;
     }
 
-    /* Remove hover no mobile */
+    /* REMOVE HOVER NO MOBILE */
+    .multi-item:hover {
+        transform: none !important;
+    }
+
     .multi-item:hover .multi-foto {
         opacity: 0 !important;
     }
 
-    .multi-item:hover .multi-info i,
-    .multi-item:hover .multi-info h4,
-    .multi-item:hover .multi-info p {
-        color: inherit !important;
+    .multi-item:hover .multi-info i {
+        color: var(--laranja) !important;
     }
 
-    /* Espaços: 1 coluna mobile */
+    .multi-item:hover .multi-info h4 {
+        color: var(--marrom) !important;
+    }
+
+    .multi-item:hover .multi-info p {
+        color: var(--verde) !important;
+    }
+
     .espacos-galeria {
         grid-template-columns: 1fr;
     }
@@ -1558,12 +1560,11 @@ p, li, input, textarea, button {
         width: 100%;
     }
 
-    /* Localização mobile */
     .localizacao-grid {
         grid-template-columns: 1fr;
     }
 
-    /* ===== CONTATO MOBILE: CENTRALIZADO ===== */
+    /* CONTATO CENTRALIZADO */
     .form-contato {
         padding: 35px 25px;
     }
@@ -1587,7 +1588,6 @@ p, li, input, textarea, button {
         flex-shrink: 0;
     }
 
-    /* Botões flutuantes mobile */
     .floating-buttons {
         right: 18px;
         bottom: 18px;
@@ -1605,7 +1605,6 @@ p, li, input, textarea, button {
         font-size: 18px;
     }
 
-    /* Footer mobile */
     .footer-social {
         gap: 25px;
     }
@@ -1616,9 +1615,8 @@ p, li, input, textarea, button {
 }
 
 @media (max-width: 480px) {
-    /* ===== EQUIPE: 1 COLUNA EM TELAS MUITO PEQUENAS ===== */
     .profissionais-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         max-width: 300px;
         margin: 0 auto;
     }
@@ -1629,7 +1627,6 @@ p, li, input, textarea, button {
         margin: 0 auto;
     }
 
-    /* Carrossel ainda menor em telas pequenas */
     .atividade-card {
         min-width: 180px;
         max-width: 180px;
