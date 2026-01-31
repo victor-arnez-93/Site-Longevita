@@ -1379,7 +1379,6 @@ p, li, input, textarea, button {
         scroll-snap-align: center;
     }
 
-    /* EQUIPE MULTIDISCIPLINAR */
     .equipe-multi-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -1399,11 +1398,41 @@ p, li, input, textarea, button {
         height: 200px;
         flex-shrink: 0;
         scroll-snap-align: center;
+        position: relative;
+        overflow: hidden;
     }
 
-    /* mantém leitura limpa no mobile */
-    .multi-foto {
-        display: none !important;
+    /* estado normal: SEM imagem */
+    .multi-item .multi-foto {
+        display: block !important;
+        opacity: 0 !important;
+        transition: opacity 0.4s ease;
+    }
+
+    /* ===== ACTIVE (simula hover no mobile) ===== */
+
+    /* imagem aparece */
+    .multi-item.active .multi-foto {
+        opacity: 1 !important;
+    }
+
+    /* ícone e textos ficam brancos */
+    .multi-item.active .multi-info i,
+    .multi-item.active .multi-info h4,
+    .multi-item.active .multi-info p {
+        color: var(--branco) !important;
+    }
+
+    /* garante texto acima da imagem */
+    .multi-item .multi-info {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* borda e sombra iguais ao hover desktop */
+    .multi-item.active {
+        border-color: var(--verde);
+        box-shadow: var(--sombra-hover);
     }
 
     .espacos-galeria {
