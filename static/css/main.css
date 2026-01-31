@@ -660,9 +660,6 @@ p, li, input, textarea, button {
     transition: all 0.4s ease;
     box-shadow: var(--sombra-card);
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .profissional-card:hover {
@@ -1262,17 +1259,14 @@ p, li, input, textarea, button {
 ============================================================ */
 
 @media (max-width: 1024px) {
-    /* Equipe gestora: 3 colunas em tablets */
     .profissionais-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* Equipe multi: 3 colunas */
     .equipe-multi-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* Espaços: 2 colunas + 2 embaixo */
     .espacos-galeria {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1283,13 +1277,11 @@ p, li, input, textarea, button {
 }
 
 @media (max-width: 768px) {
-    /* Desabilita parallax no mobile */
     .fundo1,
     .fundo2 {
         background-attachment: scroll;
     }
 
-    /* Header mobile */
     .header-container {
         flex-direction: row;
         justify-content: space-between;
@@ -1407,7 +1399,6 @@ p, li, input, textarea, button {
         max-width: 500px;
     }
 
-    /* CARROSSEL */
     .carrossel-wrapper {
         padding: 0 55px;
     }
@@ -1447,7 +1438,7 @@ p, li, input, textarea, button {
         font-size: 2rem;
     }
 
-    /* EQUIPE GESTORA - 2 COLUNAS */
+    /* EQUIPE GESTORA - MOBILE */
     .profissionais-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 20px !important;
@@ -1455,17 +1446,13 @@ p, li, input, textarea, button {
     }
 
     .profissional-card {
-        background: white !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
         padding: 25px 15px !important;
     }
 
     .profissional-foto {
         width: 100px !important;
         height: 100px !important;
-        margin-bottom: 12px !important;
+        margin: 0 auto 12px !important;
     }
 
     .iniciais {
@@ -1483,7 +1470,7 @@ p, li, input, textarea, button {
         text-align: center !important;
     }
 
-    /* EQUIPE MULTIDISCIPLINAR - 2 COLUNAS */
+    /* EQUIPE MULTIDISCIPLINAR - MOBILE */
     .equipe-multi-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 20px !important;
@@ -1494,18 +1481,10 @@ p, li, input, textarea, button {
         height: auto !important;
         min-height: 180px !important;
         padding: 25px 15px !important;
-        display: flex !important;
-        background: white !important;
     }
 
-    /* DESABILITA FOTO DE FUNDO NO MOBILE */
     .multi-item .multi-foto {
         display: none !important;
-    }
-
-    .multi-info {
-        position: relative !important;
-        z-index: 1 !important;
     }
 
     .multi-info i {
@@ -1523,7 +1502,6 @@ p, li, input, textarea, button {
         color: var(--verde) !important;
     }
 
-    /* REMOVE HOVER NO MOBILE */
     .multi-item:hover {
         transform: none !important;
     }
@@ -1564,7 +1542,6 @@ p, li, input, textarea, button {
         grid-template-columns: 1fr;
     }
 
-    /* CONTATO CENTRALIZADO */
     .form-contato {
         padding: 35px 25px;
     }
