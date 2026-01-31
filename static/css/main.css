@@ -1379,6 +1379,14 @@ p, li, input, textarea, button {
         scroll-snap-align: center;
     }
 
+/* =====================================================
+   EQUIPE MULTIDISCIPLINAR — MOBILE
+===================================================== */
+
+/* =====================================================
+   EQUIPE MULTIDISCIPLINAR — MOBILE (HOVER REAL)
+===================================================== */
+
     .equipe-multi-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -1402,39 +1410,63 @@ p, li, input, textarea, button {
         overflow: hidden;
     }
 
-    /* estado normal: SEM imagem */
+    /* IMAGEM (existe, mas invisível) */
     .multi-item .multi-foto {
-        display: block !important;
-        opacity: 0 !important;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        opacity: 0;
         transition: opacity 0.4s ease;
     }
 
-    /* ===== ACTIVE (simula hover no mobile) ===== */
-
-    /* imagem aparece */
-    .multi-item.active .multi-foto {
-        opacity: 1 !important;
+    .multi-item .multi-foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    /* ícone e textos ficam brancos */
-    .multi-item.active .multi-info i,
-    .multi-item.active .multi-info h4,
-    .multi-item.active .multi-info p {
-        color: var(--branco) !important;
-    }
-
-    /* garante texto acima da imagem */
-    .multi-item .multi-info {
-        position: relative;
+    /* OVERLAY ESCURO (igual desktop) */
+    .multi-item::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        opacity: 0;
+        transition: opacity 0.4s ease;
         z-index: 2;
     }
 
-    /* borda e sombra iguais ao hover desktop */
+    /* CONTEÚDO */
+    .multi-item .multi-info {
+        position: relative;
+        z-index: 3;
+        transition: color 0.4s ease;
+    }
+
+    /* ===== ACTIVE (simula hover) ===== */
+
+    .multi-item.active .multi-foto {
+        opacity: 1;
+    }
+
+    .multi-item.active::before {
+        opacity: 1;
+    }
+
+    .multi-item.active .multi-info i,
+    .multi-item.active .multi-info h4,
+    .multi-item.active .multi-info p {
+        color: #ffffff !important;
+    }
+
     .multi-item.active {
         border-color: var(--verde);
         box-shadow: var(--sombra-hover);
     }
 
+/* =====================================================
+   NOSSOS ESPAÇOS — MOBILE
+===================================================== */
     .espacos-galeria {
         grid-template-columns: 1fr;
     }
