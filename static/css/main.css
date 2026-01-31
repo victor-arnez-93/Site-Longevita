@@ -1249,79 +1249,8 @@ p, li, input, textarea, button {
 /* ============================================================
    RESPONSIVO MOBILE
 ============================================================ */
+
 @media (max-width: 1024px) {
-        /* ===== FORÇA EXIBIÇÃO DA EQUIPE MULTIDISCIPLINAR ===== */
-    #equipe-multi,
-    .equipe-multidisciplinar {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        height: auto !important;
-        overflow: visible !important;
-    }
-
-    .equipe-multi-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 20px !important;
-        padding: 0 15px !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-    .equipe-card {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        background: white !important;
-        padding: 20px 15px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
-        height: auto !important;
-        min-height: 200px !important;
-    }
-
-    .equipe-card .icone-wrapper {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        margin-bottom: 12px !important;
-    }
-
-    .equipe-card h3 {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        font-size: 0.95rem !important;
-        text-align: center !important;
-        margin: 8px 0 6px !important;
-        color: var(--marrom) !important;
-    }
-
-    .equipe-card p {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        font-size: 0.8rem !important;
-        text-align: center !important;
-        line-height: 1.4 !important;
-        color: #666 !important;
-    }
-
-    /* Desabilita hover no mobile para equipe multi */
-    .equipe-card:hover {
-        background: white !important;
-        background-image: none !important;
-    }
-
-    .equipe-card:hover h3,
-    .equipe-card:hover p,
-    .equipe-card:hover .icone-wrapper i {
-        color: var(--marrom) !important;
-    }
-
     /* Equipe gestora: 3 colunas em tablets */
     .profissionais-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1475,7 +1404,7 @@ p, li, input, textarea, button {
 
     /* ===== CARROSSEL MOBILE: CARDS MENORES E CENTRALIZADOS ===== */
     .carrossel-wrapper {
-        padding: 0 55px; /* Espaço para os botões */
+        padding: 0 55px;
     }
 
     .carrossel-btn {
@@ -1485,41 +1414,47 @@ p, li, input, textarea, button {
     }
 
     .atividade-card {
-        min-width: 200px; /* Diminuído de 240px */
+        min-width: 200px;
         max-width: 200px;
-        padding: 15px; /* Diminuído */
     }
 
-    .atividade-card img {
-        height: 140px; /* Diminuído */
-        object-fit: cover;
+    .atividade-img {
+        height: 120px;
+    }
+
+    .atividade-info {
+        padding: 15px;
     }
 
     .atividade-card h3 {
-        font-size: 1rem; /* Diminuído */
-        margin: 12px 0 8px;
+        font-size: 1rem;
+        margin: 10px 0 8px;
         text-align: center;
     }
 
     .atividade-card p {
-        font-size: 0.85rem; /* Diminuído */
+        font-size: 0.85rem;
         line-height: 1.4;
         text-align: center;
+    }
+
+    .icon-atividade {
+        font-size: 2rem;
     }
 
     /* ===== EQUIPE GESTORA: 2 COLUNAS MOBILE COM VISIBILIDADE ===== */
     .profissionais-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-        padding: 0 15px; /* Adiciona padding lateral */
+        padding: 0 15px;
     }
 
     .profissional-card {
-        background: white; /* Garante fundo branco */
+        background: white;
         display: flex;
         flex-direction: column;
         align-items: center;
-        opacity: 1 !important; /* Força visibilidade */
+        opacity: 1 !important;
         visibility: visible !important;
     }
 
@@ -1544,35 +1479,66 @@ p, li, input, textarea, button {
         text-align: center;
     }
 
-    /* ===== EQUIPE MULTIDISCIPLINAR: 2 COLUNAS MOBILE COM VISIBILIDADE ===== */
+    /* ===== EQUIPE MULTIDISCIPLINAR: 2 COLUNAS MOBILE - CORRIGIDO ===== */
     .equipe-multi-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 0 15px; /* Adiciona padding lateral */
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        padding: 0 15px !important;
+        display: grid !important;
     }
 
-    .equipe-card {
-        opacity: 1 !important; /* Força visibilidade */
+    .multi-item {
+        height: auto !important;
+        min-height: 180px !important;
+        padding: 25px 15px !important;
+        display: flex !important;
+        opacity: 1 !important;
         visibility: visible !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
-    .equipe-card .icone-wrapper {
-        margin-bottom: 12px;
+    /* Desabilita foto de fundo no mobile */
+    .multi-item .multi-foto {
+        display: none !important;
     }
 
-    .equipe-card h3 {
-        font-size: 0.95rem;
-        text-align: center;
-        margin: 8px 0 6px;
+    .multi-info {
+        position: relative !important;
+        z-index: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
     }
 
-    .equipe-card p {
-        font-size: 0.8rem;
-        text-align: center;
-        line-height: 1.4;
+    .multi-info i {
+        font-size: 2.5rem !important;
+        color: var(--laranja) !important;
+    }
+
+    .multi-info h4 {
+        font-size: 1rem !important;
+        color: var(--marrom) !important;
+        text-align: center !important;
+        margin: 0 !important;
+    }
+
+    .multi-info p {
+        font-size: 0.85rem !important;
+        color: var(--verde) !important;
+        text-align: center !important;
+        margin: 0 !important;
+    }
+
+    /* Remove hover no mobile */
+    .multi-item:hover .multi-foto {
+        opacity: 0 !important;
+    }
+
+    .multi-item:hover .multi-info i,
+    .multi-item:hover .multi-info h4,
+    .multi-item:hover .multi-info p {
+        color: inherit !important;
     }
 
     /* Espaços: 1 coluna mobile */
@@ -1605,20 +1571,20 @@ p, li, input, textarea, button {
     .contato-info {
         flex-direction: column;
         gap: 20px;
-        align-items: center; /* Centraliza os itens */
-        text-align: center; /* Centraliza o texto */
+        align-items: center;
+        text-align: center;
     }
 
-    .contato-info-item {
+    .info-contato-item {
         display: flex;
         align-items: center;
-        justify-content: center; /* Centraliza o conteúdo */
+        justify-content: center;
         gap: 10px;
         width: 100%;
     }
 
-    .contato-info-item i {
-        flex-shrink: 0; /* Impede que o ícone encolha */
+    .info-contato-item i {
+        flex-shrink: 0;
     }
 
     /* Botões flutuantes mobile */
@@ -1658,7 +1624,7 @@ p, li, input, textarea, button {
     }
 
     .equipe-multi-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         max-width: 300px;
         margin: 0 auto;
     }
@@ -1669,8 +1635,8 @@ p, li, input, textarea, button {
         max-width: 180px;
     }
 
-    .atividade-card img {
-        height: 120px;
+    .atividade-img {
+        height: 100px;
     }
 
     .hero-card h1 {
@@ -1681,4 +1647,3 @@ p, li, input, textarea, button {
         font-size: 1.8rem;
     }
 }
-1
