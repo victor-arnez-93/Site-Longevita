@@ -1275,6 +1275,7 @@ p, li, input, textarea, button {
 }
 
 @media (max-width: 768px) {
+
     .fundo1,
     .fundo2 {
         background-attachment: scroll;
@@ -1288,16 +1289,8 @@ p, li, input, textarea, button {
         position: relative;
     }
 
-    .logo-area {
-        justify-content: flex-start;
-    }
-
     .logo {
         height: 55px;
-    }
-
-    .titulo-clinica {
-        font-size: 1.3rem;
     }
 
     .menu-toggle {
@@ -1309,10 +1302,8 @@ p, li, input, textarea, button {
         top: 80px;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(255,255,255,0.98);
         flex-direction: column;
-        gap: 0;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -1328,31 +1319,6 @@ p, li, input, textarea, button {
         padding: 20px 0;
     }
 
-    .menu a {
-        font-size: 1rem;
-        padding: 15px 25px;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #f0f0f0;
-        transition: all 0.3s ease;
-    }
-
-    .menu a:hover {
-        background: rgba(150, 183, 75, 0.1);
-        color: var(--verde);
-    }
-
-    .menu a:last-child {
-        border-bottom: none;
-    }
-
-    .menu .button-primary {
-        margin: 10px 20px;
-        padding: 12px 24px;
-        font-size: 0.95rem;
-        width: calc(100% - 40px);
-    }
-
     .hero {
         min-height: 100vh;
         padding: 40px 0;
@@ -1366,21 +1332,8 @@ p, li, input, textarea, button {
         font-size: 2.2rem;
     }
 
-    .hero-card p {
-        font-size: 1.05rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-
     h2 {
         font-size: 2.2rem;
-    }
-
-    .logo-grande {
-        width: 150px;
     }
 
     .pilares-mvv {
@@ -1389,7 +1342,6 @@ p, li, input, textarea, button {
 
     .servicos-grid {
         flex-direction: column;
-        align-items: center;
     }
 
     .servico-card {
@@ -1397,135 +1349,65 @@ p, li, input, textarea, button {
         max-width: 500px;
     }
 
-    .carrossel-wrapper {
-        padding: 0 55px;
-    }
-
-    .carrossel-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
-    }
-
     .atividade-card {
         min-width: 200px;
         max-width: 200px;
     }
 
-    .atividade-img {
-        height: 120px;
-    }
+    /* =====================================================
+       CORREÇÃO DEFINITIVA — EQUIPE (CARROSSEL MOBILE)
+    ===================================================== */
 
-    .atividade-info {
-        padding: 15px;
-    }
-
-    .atividade-card h3 {
-        font-size: 1rem;
-        margin: 10px 0 8px;
-        text-align: center;
-    }
-
-    .atividade-card p {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        text-align: center;
-    }
-
-    .icon-atividade {
-        font-size: 2rem;
-    }
-
-    /* EQUIPE GESTORA - MOBILE */
+    /* EQUIPE GESTORA */
     .profissionais-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
         gap: 20px !important;
-        padding: 0 15px !important;
+        padding: 10px 15px 30px !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .profissionais-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .profissional-card {
-        padding: 25px 15px !important;
+        min-width: 260px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
     }
 
-    .profissional-foto {
-        width: 100px !important;
-        height: 100px !important;
-        margin: 0 auto 12px !important;
-    }
-
-    .iniciais {
-        font-size: 2rem !important;
-    }
-
-    .profissional-card h3 {
-        font-size: 1rem !important;
-        text-align: center !important;
-        margin: 8px 0 4px !important;
-    }
-
-    .profissional-card p {
-        font-size: 0.85rem !important;
-        text-align: center !important;
-    }
-
-    /* EQUIPE MULTIDISCIPLINAR - MOBILE */
+    /* EQUIPE MULTIDISCIPLINAR */
     .equipe-multi-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
         gap: 20px !important;
-        padding: 0 15px !important;
+        padding: 10px 15px 30px !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .equipe-multi-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .multi-item {
-        height: auto !important;
-        min-height: 180px !important;
-        padding: 25px 15px !important;
+        min-width: 260px;
+        height: 200px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
     }
 
-    .multi-item .multi-foto {
+    /* mantém leitura limpa no mobile */
+    .multi-foto {
         display: none !important;
-    }
-
-    .multi-info i {
-        font-size: 2.5rem !important;
-        color: var(--laranja) !important;
-    }
-
-    .multi-info h4 {
-        font-size: 1rem !important;
-        color: var(--marrom) !important;
-    }
-
-    .multi-info p {
-        font-size: 0.85rem !important;
-        color: var(--verde) !important;
-    }
-
-    .multi-item:hover {
-        transform: none !important;
-    }
-
-    .multi-item:hover .multi-foto {
-        opacity: 0 !important;
-    }
-
-    .multi-item:hover .multi-info i {
-        color: var(--laranja) !important;
-    }
-
-    .multi-item:hover .multi-info h4 {
-        color: var(--marrom) !important;
-    }
-
-    .multi-item:hover .multi-info p {
-        color: var(--verde) !important;
     }
 
     .espacos-galeria {
         grid-template-columns: 1fr;
-    }
-
-    .espacos-galeria .espaco-item:nth-child(4) {
-        grid-column: auto;
     }
 
     .espacos-tabs {
@@ -1540,48 +1422,9 @@ p, li, input, textarea, button {
         grid-template-columns: 1fr;
     }
 
-    .form-contato {
-        padding: 35px 25px;
-    }
-
     .contato-info {
         flex-direction: column;
-        gap: 20px;
         align-items: center;
-        text-align: center;
-    }
-
-    .info-contato-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .info-contato-item i {
-        flex-shrink: 0;
-    }
-
-    .floating-buttons {
-        right: 18px;
-        bottom: 18px;
-    }
-
-    .floating-whatsapp {
-        width: 56px;
-        height: 56px;
-        font-size: 28px;
-    }
-
-    .floating-top {
-        width: 44px;
-        height: 44px;
-        font-size: 18px;
-    }
-
-    .footer-social {
-        gap: 25px;
     }
 
     .footer p {
@@ -1590,25 +1433,10 @@ p, li, input, textarea, button {
 }
 
 @media (max-width: 480px) {
-    .profissionais-grid {
-        grid-template-columns: 1fr !important;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    .equipe-multi-grid {
-        grid-template-columns: 1fr !important;
-        max-width: 300px;
-        margin: 0 auto;
-    }
 
     .atividade-card {
         min-width: 180px;
         max-width: 180px;
-    }
-
-    .atividade-img {
-        height: 100px;
     }
 
     .hero-card h1 {
