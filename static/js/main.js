@@ -1,12 +1,38 @@
 /* ============================================================
-   LONGEVITÁ - JAVASCRIPT ATUALIZADO 2026
+   LONGEVITÁ - JAVASCRIPT COMPLETO 2026
    Desenvolvido por CRV Soluções em TI
 ============================================================ */
+
+// ============================================================
+// TOGGLE ATIVIDADES - GLOBAL (fora do DOMContentLoaded)
+// ============================================================
+function toggleAtividades() {
+    const cards = document.querySelectorAll('.atividade-card');
+    const btn = document.querySelector('.btn-ver-mais button');
+    const btnText = btn.querySelector('.btn-text');
+    const icon = btn.querySelector('i');
+
+    const escondidos = document.querySelectorAll('.atividade-card.hidden').length;
+
+    if (escondidos === 0) {
+        cards.forEach((card, index) => {
+            if (index >= 4) card.classList.add('hidden');
+        });
+        btnText.textContent = 'Ver mais atividades';
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+    } else {
+        cards.forEach(card => card.classList.remove('hidden'));
+        btnText.textContent = 'Ver menos atividades';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
 
     // ============================================================
-    // MENU MOBILE TOGGLE (ABRE/FECHA AO CLICAR)
+    // MENU MOBILE TOGGLE
     // ============================================================
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');
@@ -17,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.classList.toggle('active');
         });
 
-        // Fecha menu ao clicar em qualquer link
         const menuLinks = document.querySelectorAll('.menu a');
         menuLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -26,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Fecha menu ao clicar fora
         document.addEventListener('click', function(e) {
             if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
                 menu.classList.remove('active');
@@ -44,16 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = document.querySelector('.header').offsetHeight;
                 const targetPosition = targetElement.offsetTop - headerHeight - 20;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
         });
     });
@@ -62,12 +81,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // ANIMAÇÃO DE ENTRADA (SCROLL REVEAL)
     // ============================================================
     const animarElementos = document.querySelectorAll('.animar');
-
     const observerOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     };
-
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -75,16 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-
-    animarElementos.forEach(elemento => {
-        observer.observe(elemento);
-    });
+    animarElementos.forEach(elemento => observer.observe(elemento));
 
     // ============================================================
     // HEADER COM SOMBRA AO ROLAR
     // ============================================================
     const header = document.querySelector('.header');
-
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             header.classList.add('header-shadow');
@@ -97,7 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // BOTÃO VOLTAR AO TOPO
     // ============================================================
     const btnTop = document.querySelector('.floating-top');
-
     if (btnTop) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 400) {
@@ -120,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const cardWidth = cards[0].offsetWidth;
         const gap = 20;
         const totalCardWidth = cardWidth + gap;
-
         let currentIndex = 0;
         let isDragging = false;
         let startPos = 0;
@@ -130,52 +141,29 @@ document.addEventListener('DOMContentLoaded', function() {
         let autoPlayInterval;
         let isPaused = false;
 
-        // Clone os cards para loop infinito
         const cloneCount = 3;
         for (let i = 0; i < cloneCount; i++) {
-            cards.forEach(card => {
-                track.appendChild(card.cloneNode(true));
-            });
+            cards.forEach(card => track.appendChild(card.cloneNode(true)));
         }
 
-        // Auto-play MAIS LENTO (5 segundos)
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
-                if (!isPaused) {
-                    moveNext();
-                }
+                if (!isPaused) moveNext();
             }, 5000);
         }
-
         startAutoPlay();
 
-        // Botões
-        nextBtn.addEventListener('click', () => {
-            resetAutoPlay();
-            moveNext();
-        });
+        nextBtn.addEventListener('click', () => { resetAutoPlay(); moveNext(); });
+        prevBtn.addEventListener('click', () => { resetAutoPlay(); movePrev(); });
 
-        prevBtn.addEventListener('click', () => {
-            resetAutoPlay();
-            movePrev();
-        });
-
-        function moveNext() {
-            currentIndex++;
-            updatePosition();
-        }
-
-        function movePrev() {
-            currentIndex--;
-            updatePosition();
-        }
+        function moveNext() { currentIndex++; updatePosition(); }
+        function movePrev() { currentIndex--; updatePosition(); }
 
         function updatePosition() {
             currentTranslate = currentIndex * -totalCardWidth;
             prevTranslate = currentTranslate;
             track.style.transform = `translateX(${currentTranslate}px)`;
 
-            // Reset infinito
             const totalCards = track.children.length;
             const originalCardsCount = cards.length;
 
@@ -186,9 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentTranslate = currentIndex * -totalCardWidth;
                     prevTranslate = currentTranslate;
                     track.style.transform = `translateX(${currentTranslate}px)`;
-                    setTimeout(() => {
-                        track.style.transition = 'transform 0.5s ease';
-                    }, 50);
+                    setTimeout(() => { track.style.transition = 'transform 0.5s ease'; }, 50);
                 }, 500);
             }
 
@@ -199,47 +185,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentTranslate = currentIndex * -totalCardWidth;
                     prevTranslate = currentTranslate;
                     track.style.transform = `translateX(${currentTranslate}px)`;
-                    setTimeout(() => {
-                        track.style.transition = 'transform 0.5s ease';
-                    }, 50);
+                    setTimeout(() => { track.style.transition = 'transform 0.5s ease'; }, 50);
                 }, 500);
             }
         }
 
-        function resetAutoPlay() {
-            clearInterval(autoPlayInterval);
-            startAutoPlay();
-        }
+        function resetAutoPlay() { clearInterval(autoPlayInterval); startAutoPlay(); }
 
-        // PAUSA AO PASSAR MOUSE (DESKTOP)
-        track.addEventListener('mouseenter', () => {
-            isPaused = true;
-        });
+        track.addEventListener('mouseenter', () => { isPaused = true; });
+        track.addEventListener('mouseleave', () => { isPaused = false; });
 
-        track.addEventListener('mouseleave', () => {
-            isPaused = false;
-        });
-
-        // Drag com mouse
         track.addEventListener('mousedown', dragStart);
         track.addEventListener('mousemove', drag);
         track.addEventListener('mouseup', dragEnd);
         track.addEventListener('mouseleave', dragEnd);
 
-        // PAUSA AO CLICAR/SEGURAR (MOBILE)
-        track.addEventListener('touchstart', (e) => {
-            isPaused = true;
-            dragStart(e);
-        });
-
+        track.addEventListener('touchstart', (e) => { isPaused = true; dragStart(e); });
         track.addEventListener('touchmove', drag);
-
         track.addEventListener('touchend', (e) => {
             dragEnd(e);
-            // Volta a rodar após 3 segundos
-            setTimeout(() => {
-                isPaused = false;
-            }, 3000);
+            setTimeout(() => { isPaused = false; }, 3000);
         });
 
         function dragStart(e) {
@@ -260,17 +225,9 @@ document.addEventListener('DOMContentLoaded', function() {
             isDragging = false;
             cancelAnimationFrame(animationID);
             track.style.cursor = 'grab';
-
             const movedBy = currentTranslate - prevTranslate;
-
-            if (movedBy < -100) {
-                currentIndex++;
-            }
-
-            if (movedBy > 100) {
-                currentIndex--;
-            }
-
+            if (movedBy < -100) currentIndex++;
+            if (movedBy > 100) currentIndex--;
             updatePosition();
             resetAutoPlay();
         }
@@ -290,16 +247,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================================
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
-
     tabBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             const targetTab = this.getAttribute('data-tab');
-
-            // Remove active de todos
             tabBtns.forEach(b => b.classList.remove('active'));
             tabContents.forEach(c => c.classList.remove('active'));
-
-            // Adiciona active ao clicado
             this.classList.add('active');
             document.getElementById(`tab-${targetTab}`).classList.add('active');
         });
@@ -327,9 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) {
-                lightbox.classList.remove('active');
-            }
+            if (e.target === lightbox) lightbox.classList.remove('active');
         });
 
         document.addEventListener('keydown', function(e) {
@@ -343,22 +293,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // EQUIPE MULTIDISCIPLINAR - TOGGLE MOBILE
     // ============================================================
     const multiItems = document.querySelectorAll('.multi-item');
-
-    // Detecta se é mobile
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
         multiItems.forEach(item => {
             item.addEventListener('click', function() {
-                // Remove active de todos
                 multiItems.forEach(i => i.classList.remove('active'));
-                // Adiciona active no clicado
                 this.classList.add('active');
-
-                // Remove após 3 segundos
-                setTimeout(() => {
-                    this.classList.remove('active');
-                }, 3000);
+                setTimeout(() => { this.classList.remove('active'); }, 3000);
             });
         });
     }
@@ -367,58 +309,49 @@ document.addEventListener('DOMContentLoaded', function() {
     // FORMULÁRIO DE CONTATO
     // ============================================================
     const formContato = document.getElementById('form-contato');
-
     if (formContato) {
         formContato.addEventListener('submit', function(e) {
             e.preventDefault();
-
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const telefone = document.getElementById('telefone').value;
             const mensagem = document.getElementById('mensagem').value;
 
-            // Validação básica
             if (!nome || !email || !telefone || !mensagem) {
                 alert('Por favor, preencha todos os campos!');
                 return;
             }
 
-            // Aqui você pode integrar com Google Sheets ou enviar email
-            console.log({
-                nome: nome,
-                email: email,
-                telefone: telefone,
-                mensagem: mensagem
-            });
-
-            // Mensagem de sucesso
+            console.log({ nome, email, telefone, mensagem });
             alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.\n\nEntraremos em contato em breve.`);
-
-            // Limpa formulário
             formContato.reset();
 
-            // Redireciona para WhatsApp (opcional)
-            const whatsappMsg = `Olá! Sou ${nome}. ${mensagem}`;
-            const whatsappURL = `https://wa.me/5515981234567?text=${encodeURIComponent(whatsappMsg)}`;
+            // const whatsappMsg = `Olá! Sou ${nome}. ${mensagem}`;
+            // const whatsappURL = `https://wa.me/5515981234567?text=${encodeURIComponent(whatsappMsg)}`;
             // window.open(whatsappURL, '_blank');
         });
     }
 
     // ============================================================
+    // INICIALIZAÇÃO ATIVIDADES (4 visíveis ao carregar)
+    // ============================================================
+    const atividadeCards = document.querySelectorAll('.atividade-card');
+    atividadeCards.forEach((card, index) => {
+        if (index >= 4) card.classList.add('hidden');
+    });
+
+    // ============================================================
     // MÁSCARA PARA TELEFONE
     // ============================================================
     const telefoneInput = document.getElementById('telefone');
-
     if (telefoneInput) {
         telefoneInput.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
-
             if (value.length <= 10) {
                 value = value.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
             } else {
                 value = value.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
             }
-
             e.target.value = value;
         });
     }
@@ -429,4 +362,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c🌿 Longevitá - Site carregado com sucesso!', 'color: #96B74B; font-size: 16px; font-weight: bold;');
     console.log('%c💻 Desenvolvido por CRV Soluções em TI', 'color: #EB7217; font-size: 12px;');
 
-});
+}); // FIM DOMContentLoaded
