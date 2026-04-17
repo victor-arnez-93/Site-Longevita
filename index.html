@@ -543,16 +543,17 @@
         <div class="tab-content" id="tab-exclusive">
             <div class="espacos-videos">
                 <div class="video-wrapper">
-                    <iframe
-                        src="https://www.instagram.com/reel/DV_eUHjkYru/embed/"
-                        width="400"
-                        height="480"
-                        frameborder="0"
-                        scrolling="no"
-                        allowtransparency="true"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-                        style="border-radius:12px; max-width:100%;">
-                    </iframe>
+                    <video
+                        id="video-gold"
+                        src="static/imagens/videogold.mp4"
+                        playsinline
+                        loop
+                        muted
+                        style="border-radius:12px; max-width:100%; width:400px; height:480px; object-fit:cover; display:block;">
+                    </video>
+                    <button class="video-play-btn" onclick="toggleVideo('video-gold', this)" aria-label="Play/Pause">
+                        <i class="fas fa-play"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -570,9 +571,9 @@
             <div class="localizacao-grid">
                 <!-- Unidade Premium -->
                 <div class="local-card">
-                    <h3><i class="fas fa-map-marker-alt"></i> Longevitá Gold</h3>
-                    <p><strong>Endereço:</strong> Rua Prof. Waldemar Ferreira, 111<br>
-                    Jardim São Paulo, Tatuí - SP</p>
+                    <h3><i class="fas fa-map-marker-alt"></i> Longevitá Premium</h3>
+                    <p><strong>Endereço:</strong> Rua Prefeito Nicolau Sinisgalli, 146<br>
+                    Junqueira. São Paulo, Tatuí - SP</p>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.8!2d-47.8567!3d-23.3567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDIxJzI0LjEiUyA0N8KwNTEnMjQuMSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
                         width="100%"
@@ -586,7 +587,7 @@
                     </a>
                 </div>
 
-                <!-- Unidade Exclusive -->
+                <!-- Unidade Gold -->
                 <div class="local-card">
                     <h3><i class="fas fa-map-marker-alt"></i> Longevitá Gold</h3>
                     <p><strong>Endereço:</strong> Rua Prof. Waldemar Ferreira, 111<br>

@@ -159,6 +159,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================================
+    // PLAY/PAUSE VÍDEO LOCAL
+    // ============================================================
+    window.toggleVideo = function(videoId, btn) {
+        const video = document.getElementById(videoId);
+        const icon = btn.querySelector('i');
+        if (video.paused) {
+            video.play();
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause');
+        } else {
+            video.pause();
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+        }
+    };
+
+    // ============================================================
     // CONSOLE LOG
     // ============================================================
     console.log('%c🌿 Longevitá - Site carregado com sucesso!', 'color: #96B74B; font-size: 16px; font-weight: bold;');

@@ -829,6 +829,44 @@ p, li, input, textarea, button {
     height: 480px;
 }
 
+.video-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+.video-wrapper video {
+    display: block;
+}
+
+.video-play-btn {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.video-play-btn:hover {
+    background: rgba(0,0,0,0.75);
+    border-color: #fff;
+    transform: translateX(-50%) scale(1.1);
+}
+
 /* ============================================================
    LOCALIZAÇÃO
 ============================================================ */
