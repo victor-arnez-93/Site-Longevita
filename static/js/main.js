@@ -3,32 +3,6 @@
    Desenvolvido por CRV Soluções em TI
 ============================================================ */
 
-// ============================================================
-// TOGGLE ATIVIDADES - GLOBAL (fora do DOMContentLoaded)
-// ============================================================
-function toggleAtividades() {
-    const cards = document.querySelectorAll('.atividade-card');
-    const btn = document.querySelector('.btn-ver-mais button');
-    const btnText = btn.querySelector('.btn-text');
-    const icon = btn.querySelector('i');
-
-    const escondidos = document.querySelectorAll('.atividade-card.hidden').length;
-
-    if (escondidos === 0) {
-        cards.forEach((card, index) => {
-            if (index >= 4) card.classList.add('hidden');
-        });
-        btnText.textContent = 'Ver mais atividades';
-        icon.classList.remove('fa-chevron-up');
-        icon.classList.add('fa-chevron-down');
-    } else {
-        cards.forEach(card => card.classList.remove('hidden'));
-        btnText.textContent = 'Ver menos atividades';
-        icon.classList.remove('fa-chevron-down');
-        icon.classList.add('fa-chevron-up');
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
 
     // ============================================================
@@ -112,135 +86,138 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnTop = document.querySelector('.floating-top');
     if (btnTop) {
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 400) {
-                btnTop.style.display = 'flex';
-            } else {
-                btnTop.style.display = 'none';
-            }
+            btnTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
         });
     }
 
     // ============================================================
-    // CARROSSEL INFINITO (MAIS LENTO, PAUSA NO HOVER/CLIQUE)
+    // CARROSSEL DESTAQUES & ATIVIDADES
     // ============================================================
-    const track = document.querySelector('.carrossel-track');
-    const prevBtn = document.querySelector('.carrossel-btn.prev');
-    const nextBtn = document.querySelector('.carrossel-btn.next');
+    (function() {
+        const track = document.querySelector('.carrossel-track');
+        const container = document.querySelector('.carrossel-track-container');
+        const btnPrev = document.querySelector('.carrossel-btn.prev');
+        const btnNext = document.querySelector('.carrossel-btn.next');
+        const dotsContainer = document.getElementById('carrossel-dots');
 
-    if (track && prevBtn && nextBtn) {
+        if (!track || !btnPrev || !btnNext) return;
+
         const cards = Array.from(track.children);
-        const cardWidth = cards[0].offsetWidth;
-        const gap = 20;
-        const totalCardWidth = cardWidth + gap;
         let currentIndex = 0;
-        let isDragging = false;
-        let startPos = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let animationID = 0;
         let autoPlayInterval;
         let isPaused = false;
 
-        const cloneCount = 3;
-        for (let i = 0; i < cloneCount; i++) {
-            cards.forEach(card => track.appendChild(card.cloneNode(true)));
+        function getVisibleCount() {
+            const w = window.innerWidth;
+            if (w <= 480) return 2;
+            if (w <= 768) return 3;
+            if (w <= 1024) return 4;
+            return 5;
+        }
+
+        function getCardWidth() {
+            return cards[0].offsetWidth + 20; // 20 = gap
+        }
+
+        function getTotalPages() {
+            return Math.ceil(cards.length / getVisibleCount());
+        }
+
+        function updateCarrossel() {
+            const offset = currentIndex * getCardWidth() * getVisibleCount();
+            track.style.transform = `translateX(-${offset}px)`;
+            btnPrev.disabled = currentIndex === 0;
+            btnNext.disabled = currentIndex >= getTotalPages() - 1;
+            updateDots();
+        }
+
+        function buildDots() {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < getTotalPages(); i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarrossel();
+                    resetAutoPlay();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateDots() {
+            if (!dotsContainer) return;
+            dotsContainer.querySelectorAll('.dot')
+                .forEach((d, i) => d.classList.toggle('active', i === currentIndex));
         }
 
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
-                if (!isPaused) moveNext();
-            }, 5000);
-        }
-        startAutoPlay();
-
-        nextBtn.addEventListener('click', () => { resetAutoPlay(); moveNext(); });
-        prevBtn.addEventListener('click', () => { resetAutoPlay(); movePrev(); });
-
-        function moveNext() { currentIndex++; updatePosition(); }
-        function movePrev() { currentIndex--; updatePosition(); }
-
-        function updatePosition() {
-            currentTranslate = currentIndex * -totalCardWidth;
-            prevTranslate = currentTranslate;
-            track.style.transform = `translateX(${currentTranslate}px)`;
-
-            const totalCards = track.children.length;
-            const originalCardsCount = cards.length;
-
-            if (currentIndex >= totalCards - originalCardsCount) {
-                setTimeout(() => {
-                    track.style.transition = 'none';
-                    currentIndex = originalCardsCount;
-                    currentTranslate = currentIndex * -totalCardWidth;
-                    prevTranslate = currentTranslate;
-                    track.style.transform = `translateX(${currentTranslate}px)`;
-                    setTimeout(() => { track.style.transition = 'transform 0.5s ease'; }, 50);
-                }, 500);
-            }
-
-            if (currentIndex < 0) {
-                setTimeout(() => {
-                    track.style.transition = 'none';
-                    currentIndex = totalCards - (originalCardsCount * 2);
-                    currentTranslate = currentIndex * -totalCardWidth;
-                    prevTranslate = currentTranslate;
-                    track.style.transform = `translateX(${currentTranslate}px)`;
-                    setTimeout(() => { track.style.transition = 'transform 0.5s ease'; }, 50);
-                }, 500);
-            }
+                if (isPaused) return;
+                if (currentIndex >= getTotalPages() - 1) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex++;
+                }
+                updateCarrossel();
+            }, 4000);
         }
 
-        function resetAutoPlay() { clearInterval(autoPlayInterval); startAutoPlay(); }
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
 
+        btnNext.addEventListener('click', () => {
+            if (currentIndex < getTotalPages() - 1) {
+                currentIndex++;
+                updateCarrossel();
+                resetAutoPlay();
+            }
+        });
+
+        btnPrev.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarrossel();
+                resetAutoPlay();
+            }
+        });
+
+        // Pausa no hover
         track.addEventListener('mouseenter', () => { isPaused = true; });
         track.addEventListener('mouseleave', () => { isPaused = false; });
 
-        track.addEventListener('mousedown', dragStart);
-        track.addEventListener('mousemove', drag);
-        track.addEventListener('mouseup', dragEnd);
-        track.addEventListener('mouseleave', dragEnd);
-
-        track.addEventListener('touchstart', (e) => { isPaused = true; dragStart(e); });
-        track.addEventListener('touchmove', drag);
-        track.addEventListener('touchend', (e) => {
-            dragEnd(e);
-            setTimeout(() => { isPaused = false; }, 3000);
+        // Swipe touch
+        let startX = 0;
+        track.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+            isPaused = true;
+        }, { passive: true });
+        track.addEventListener('touchend', e => {
+            const diff = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0 && currentIndex < getTotalPages() - 1) currentIndex++;
+                else if (diff < 0 && currentIndex > 0) currentIndex--;
+                updateCarrossel();
+                resetAutoPlay();
+            }
+            setTimeout(() => { isPaused = false; }, 2000);
         });
 
-        function dragStart(e) {
-            isDragging = true;
-            startPos = getPositionX(e);
-            animationID = requestAnimationFrame(animation);
-            track.style.cursor = 'grabbing';
-            clearInterval(autoPlayInterval);
-        }
+        // Recalcula no resize
+        window.addEventListener('resize', () => {
+            currentIndex = 0;
+            buildDots();
+            updateCarrossel();
+        });
 
-        function drag(e) {
-            if (!isDragging) return;
-            const currentPosition = getPositionX(e);
-            currentTranslate = prevTranslate + currentPosition - startPos;
-        }
-
-        function dragEnd() {
-            isDragging = false;
-            cancelAnimationFrame(animationID);
-            track.style.cursor = 'grab';
-            const movedBy = currentTranslate - prevTranslate;
-            if (movedBy < -100) currentIndex++;
-            if (movedBy > 100) currentIndex--;
-            updatePosition();
-            resetAutoPlay();
-        }
-
-        function getPositionX(e) {
-            return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        }
-
-        function animation() {
-            track.style.transform = `translateX(${currentTranslate}px)`;
-            if (isDragging) requestAnimationFrame(animation);
-        }
-    }
+        buildDots();
+        updateCarrossel();
+        startAutoPlay();
+    })();
 
     // ============================================================
     // ABAS "NOSSO ESPAÇO"
@@ -258,44 +235,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================================
-    // LIGHTBOX PARA ESPAÇOS
-    // ============================================================
-    const espacoItems = document.querySelectorAll('.espaco-item');
-    const lightbox = document.getElementById('lightbox-espacos');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.querySelector('.lightbox-close');
-
-    if (lightbox && lightboxImg && lightboxClose) {
-        espacoItems.forEach(item => {
-            item.addEventListener('click', function() {
-                const imgSrc = this.getAttribute('data-img');
-                lightboxImg.src = imgSrc;
-                lightbox.classList.add('active');
-            });
-        });
-
-        lightboxClose.addEventListener('click', function() {
-            lightbox.classList.remove('active');
-        });
-
-        lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) lightbox.classList.remove('active');
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                lightbox.classList.remove('active');
-            }
-        });
-    }
-
-    // ============================================================
     // EQUIPE MULTIDISCIPLINAR - TOGGLE MOBILE
     // ============================================================
     const multiItems = document.querySelectorAll('.multi-item');
-    const isMobile = window.innerWidth <= 768;
 
-    if (isMobile) {
+    if (window.innerWidth <= 768) {
         multiItems.forEach(item => {
             item.addEventListener('click', function() {
                 multiItems.forEach(i => i.classList.remove('active'));
@@ -322,23 +266,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            console.log({ nome, email, telefone, mensagem });
             alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.\n\nEntraremos em contato em breve.`);
             formContato.reset();
-
-            // const whatsappMsg = `Olá! Sou ${nome}. ${mensagem}`;
-            // const whatsappURL = `https://wa.me/5515981234567?text=${encodeURIComponent(whatsappMsg)}`;
-            // window.open(whatsappURL, '_blank');
         });
     }
-
-    // ============================================================
-    // INICIALIZAÇÃO ATIVIDADES (4 visíveis ao carregar)
-    // ============================================================
-    const atividadeCards = document.querySelectorAll('.atividade-card');
-    atividadeCards.forEach((card, index) => {
-        if (index >= 4) card.classList.add('hidden');
-    });
 
     // ============================================================
     // MÁSCARA PARA TELEFONE
