@@ -13,18 +13,13 @@
 }
 
 :root {
-    /* Paleta Longevitá */
     --laranja: #EB7217;
     --dourado: #C1A336;
     --verde: #96B74B;
     --branco: #ffffff;
     --marrom: #523a34;
-
-    /* Fontes */
     --font-titulo: 'Playfair Display', serif;
     --font-texto: 'Inter', sans-serif;
-
-    /* Sombras */
     --sombra-card: 0 4px 20px rgba(0,0,0,0.08);
     --sombra-hover: 0 8px 30px rgba(150, 183, 75, 0.25);
 }
@@ -38,7 +33,7 @@ body {
 }
 
 /* ============================================================
-   TIPOGRAFIA (TUDO CENTRALIZADO)
+   TIPOGRAFIA
 ============================================================ */
 h1, h2, h3 {
     font-family: var(--font-titulo);
@@ -150,7 +145,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   MENU HAMBURGUER (MOBILE)
+   MENU HAMBURGUER
 ============================================================ */
 .menu-toggle {
     display: none;
@@ -231,7 +226,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   FUNDOS — fundo1.png e fundo2.png alternados
+   FUNDOS
 ============================================================ */
 .fundo1 {
     background: url("../imagens/fundo1.png") center center / cover no-repeat;
@@ -251,10 +246,8 @@ p, li, input, textarea, button {
 .fundo2::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(255, 255, 255, 0.01);
     pointer-events: none;
 }
@@ -266,10 +259,10 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   HERO (FULLSCREEN COM IMAGEM DE FUNDO SUAVE)
+   HERO
 ============================================================ */
 .hero {
-    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.30)),
+    background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.30)),
                 url("../imagens/img1.png") center center / cover no-repeat;
     display: flex;
     justify-content: center;
@@ -282,10 +275,8 @@ p, li, input, textarea, button {
 .hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(248, 249, 250, 0.4);
     pointer-events: none;
 }
@@ -334,14 +325,6 @@ p, li, input, textarea, button {
     text-align: center;
 }
 
-.quem-somos h2 {
-    text-align: center;
-}
-
-.quem-somos .subtitulo {
-    text-align: center;
-}
-
 .quem-somos-content {
     width: 90%;
     max-width: 900px;
@@ -355,7 +338,6 @@ p, li, input, textarea, button {
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
 }
 
-/* Parágrafos JUSTIFICADOS (exceto subtítulo) */
 .quem-somos p {
     margin-bottom: 22px;
     font-size: 1.1rem;
@@ -364,12 +346,10 @@ p, li, input, textarea, button {
     text-align: justify;
 }
 
-/* SUBTÍTULO CENTRALIZADO (mais específico) */
 .quem-somos .subtitulo {
     text-align: center !important;
 }
 
-/* Missão, Visão e Valores */
 .pilares-mvv {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -429,7 +409,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   SERVIÇOS (BOTÕES ALINHADOS NA MESMA ALTURA)
+   SERVIÇOS
 ============================================================ */
 .servicos {
     text-align: center;
@@ -491,7 +471,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-  DESTAQUES E ATIVIDADES (4 CARDS VISÍVEIS + BOTÃO VER MAIS)
+   DESTAQUES & ATIVIDADES
 ============================================================ */
 .atividades {
     text-align: center;
@@ -506,15 +486,13 @@ p, li, input, textarea, button {
     padding: 0 20px;
 }
 
-/* Cards ocultos */
 .atividade-card.hidden {
     display: none;
 }
 
-/* Cards (IMAGENS MAIORES: 320px + FOCO ROSTO) */
 .atividade-img {
     width: 100%;
-    height: 320px; /* AUMENTADO de 240px para 320px */
+    height: 320px;
     overflow: hidden;
     border-radius: 16px 16px 0 0;
     position: relative;
@@ -524,11 +502,10 @@ p, li, input, textarea, button {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 25%; /* FOCO NO ROSTO (25% do topo) */
+    object-position: center 25%;
     transition: all 0.4s ease;
 }
 
-/* Mantém todos os outros estilos dos cards (hover, ícones, etc.) */
 .atividade-card {
     background: var(--branco);
     padding: 0;
@@ -549,15 +526,14 @@ p, li, input, textarea, button {
 
 .atividade-card:hover .atividade-img img {
     transform: scale(1.1);
-    object-position: center 20%; /* Ajuste fino no hover para rosto */
+    object-position: center 20%;
 }
 
 .atividade-info {
-    padding: 24px; /* Mais espaço para texto */
+    padding: 24px;
     transition: all 0.4s ease;
 }
 
-/* Hover verde com texto branco (mantido) */
 .atividade-card:hover .atividade-info {
     background: rgba(150, 183, 75, 0.95);
     color: var(--branco);
@@ -589,11 +565,10 @@ p, li, input, textarea, button {
 .atividade-card p {
     color: #555;
     line-height: 1.6;
-    font-size: 0.9rem; /* Levemente maior */
+    font-size: 0.9rem;
     transition: color 0.4s ease;
 }
 
-/* Botão "Ver mais" no padrão do site */
 .btn-ver-mais {
     margin-top: 40px;
     text-align: center;
@@ -620,7 +595,7 @@ p, li, input, textarea, button {
 .btn-primary:hover {
     background: var(--verde);
     color: var(--branco);
-    box-shadow: 0 0 20px rgba(150, 183, 75, 0.4); /* Efeito neon */
+    box-shadow: 0 0 20px rgba(150, 183, 75, 0.4);
     transform: translateY(-2px);
 }
 
@@ -628,50 +603,9 @@ p, li, input, textarea, button {
     transition: transform 0.3s ease;
 }
 
-/* Responsividade OTIMIZADA para fotos maiores */
-@media (max-width: 1024px) {
-    .atividades-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .atividade-img {
-        height: 300px; /* 300px em tablet */
-    }
-}
-
-@media (max-width: 720px) {
-    .atividades-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .atividade-img {
-        height: 280px; /* 280px mobile */
-        object-position: center 30%; /* Mais foco no rosto em mobile */
-    }
-
-    .atividade-img img:hover {
-        object-position: center 25%;
-    }
-
-    .btn-ver-mais {
-        margin-top: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .atividade-img {
-        height: 260px; /* 260px em mobile pequeno */
-        object-position: center 35%;
-    }
-}
-
-
 /* ============================================================
-   PROFISSIONAIS (4 COLUNAS × 2 LINHAS - CARDS MENORES)
+   PROFISSIONAIS
 ============================================================ */
-
 .profissionais {
     text-align: center;
 }
@@ -718,7 +652,6 @@ p, li, input, textarea, button {
     object-fit: cover;
 }
 
-/* Placeholder com iniciais (TODOS VERDE) */
 .profissional-placeholder {
     background: linear-gradient(135deg, var(--verde), var(--dourado));
     display: flex;
@@ -753,9 +686,8 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   EQUIPE MULTIDISCIPLINAR (DESIGN IGUAL NOSSO ESPAÇO)
+   EQUIPE MULTIDISCIPLINAR
 ============================================================ */
-
 .equipe-multi-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -790,13 +722,10 @@ p, li, input, textarea, button {
     box-shadow: var(--sombra-hover);
 }
 
-/* FOTO (fica escondida, aparece no hover como fundo) */
 .multi-foto {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     z-index: 1;
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -812,7 +741,6 @@ p, li, input, textarea, button {
     opacity: 1;
 }
 
-/* INFO (ícone + texto) */
 .multi-info {
     position: relative;
     z-index: 2;
@@ -824,7 +752,6 @@ p, li, input, textarea, button {
     height: 100%;
 }
 
-/* ÍCONE (colorido normal, branco no hover) */
 .multi-info i {
     font-size: 3rem;
     color: var(--laranja);
@@ -835,7 +762,6 @@ p, li, input, textarea, button {
     color: var(--branco);
 }
 
-/* NOME E FUNÇÃO (coloridos normal, branco no hover) */
 .multi-info h4 {
     color: var(--marrom);
     font-size: 1.2rem;
@@ -863,17 +789,9 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   NOSSO ESPAÇO (2 LINHAS × 2 COLUNAS - FOTOS VISÍVEIS)
+   NOSSO ESPAÇO — ABAS
 ============================================================ */
 .espacos {
-    text-align: center;
-}
-
-.espacos h2 {
-    text-align: center;
-}
-
-.espacos .subtitulo {
     text-align: center;
 }
 
@@ -898,11 +816,7 @@ p, li, input, textarea, button {
     font-family: var(--font-texto);
 }
 
-.tab-btn:hover {
-    background: var(--verde);
-    color: var(--branco);
-}
-
+.tab-btn:hover,
 .tab-btn.active {
     background: var(--verde);
     color: var(--branco);
@@ -916,115 +830,18 @@ p, li, input, textarea, button {
     display: block;
 }
 
-/* GRID 2×2 */
-.espacos-galeria {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* CARD COM IMAGEM JÁ VISÍVEL */
-.espaco-item {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    height: 300px;
-    box-shadow: var(--sombra-card);
-}
-
-.espaco-item:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--sombra-hover);
-}
-
-/* PLACEHOLDER COM IMAGEM DE FUNDO + GRADIENTE */
-.espaco-placeholder {
-    background: linear-gradient(rgba(150, 183, 75, 0.6), rgba(235, 114, 23, 0.6)),
-                linear-gradient(135deg, var(--verde), var(--laranja));
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    border-radius: 20px;
+/* VÍDEOS INSTAGRAM */
+.espacos-videos {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
-    transition: all 0.4s ease;
-    padding: 30px;
-    margin-bottom: 0;
-}
-
-.espaco-item:hover .espaco-placeholder {
-    background: linear-gradient(rgba(150, 183, 75, 0.85), rgba(150, 183, 75, 0.85));
-}
-
-/* ÍCONE (sempre branco) */
-.espaco-placeholder i {
-    font-size: 5rem;
-    color: var(--branco);
-    transition: all 0.4s ease;
-}
-
-/* TEXTO (sempre branco, centralizado) */
-.espaco-item p {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--branco);
-    text-align: center;
-    margin: 0;
-    line-height: 1.4;
-}
-
-/* Lightbox */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 10000;
-    align-items: center;
     justify-content: center;
+    padding: 30px 0;
 }
 
-.lightbox.active {
-    display: flex;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 85vh;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: var(--laranja);
-    color: var(--branco);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.lightbox-close:hover {
-    background: var(--verde);
-    transform: rotate(90deg);
+.espacos-videos .instagram-media {
+    flex: 1 1 340px;
+    max-width: 400px;
 }
 
 /* ============================================================
@@ -1173,6 +990,16 @@ p, li, input, textarea, button {
     font-size: 1.5rem;
 }
 
+.info-contato-item a {
+    color: var(--marrom);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-contato-item a:hover {
+    color: var(--verde);
+}
+
 /* ============================================================
    ANIMAÇÕES DE ENTRADA
 ============================================================ */
@@ -1194,7 +1021,6 @@ p, li, input, textarea, button {
     background: var(--marrom);
     text-align: center;
     padding: 35px;
-    margin-top: 0;
 }
 
 .footer-social {
@@ -1262,7 +1088,6 @@ p, li, input, textarea, button {
 .floating-whatsapp:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-    text-decoration: none;
 }
 
 .floating-top {
@@ -1287,9 +1112,8 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   RESPONSIVO MOBILE
+   RESPONSIVO — 1024px (TABLET)
 ============================================================ */
-
 @media (max-width: 1024px) {
     .profissionais-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1299,28 +1123,33 @@ p, li, input, textarea, button {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .espacos-galeria {
+    .atividades-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
-    .espacos-galeria .espaco-item:nth-child(4) {
-        grid-column: auto;
+    .atividade-img {
+        height: 300px;
     }
 }
 
+/* ============================================================
+   RESPONSIVO — 768px (MOBILE)
+============================================================ */
 @media (max-width: 768px) {
 
+    /* Fundos */
     .fundo1,
     .fundo2 {
         background-attachment: scroll;
     }
 
+    /* Header */
     .header-container {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         padding: 0;
-        position: relative;
     }
 
     .logo {
@@ -1353,6 +1182,12 @@ p, li, input, textarea, button {
         padding: 20px 0;
     }
 
+    /* Tipografia */
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Hero */
     .hero {
         min-height: 100vh;
         padding: 40px 0;
@@ -1366,14 +1201,12 @@ p, li, input, textarea, button {
         font-size: 2.2rem;
     }
 
-    h2 {
-        font-size: 2.2rem;
-    }
-
+    /* Quem Somos */
     .pilares-mvv {
         grid-template-columns: 1fr;
     }
 
+    /* Serviços */
     .servicos-grid {
         flex-direction: column;
     }
@@ -1383,16 +1216,22 @@ p, li, input, textarea, button {
         max-width: 500px;
     }
 
-    .atividade-card {
-        min-width: 200px;
-        max-width: 200px;
+    /* Destaques & Atividades */
+    .atividades-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    /* =====================================================
-       CORREÇÃO DEFINITIVA — EQUIPE (CARROSSEL MOBILE)
-    ===================================================== */
+    .atividade-img {
+        height: 280px;
+        object-position: center 30%;
+    }
 
-    /* EQUIPE GESTORA */
+    .btn-ver-mais {
+        margin-top: 30px;
+    }
+
+    /* Profissionais — carrossel horizontal */
     .profissionais-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -1413,14 +1252,7 @@ p, li, input, textarea, button {
         scroll-snap-align: center;
     }
 
-/* =====================================================
-   EQUIPE MULTIDISCIPLINAR — MOBILE
-===================================================== */
-
-/* =====================================================
-   EQUIPE MULTIDISCIPLINAR — MOBILE (HOVER REAL)
-===================================================== */
-
+    /* Equipe Multidisciplinar — carrossel horizontal */
     .equipe-multi-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -1440,26 +1272,9 @@ p, li, input, textarea, button {
         height: 200px;
         flex-shrink: 0;
         scroll-snap-align: center;
-        position: relative;
-        overflow: hidden;
     }
 
-    /* IMAGEM (existe, mas invisível) */
-    .multi-item .multi-foto {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
-    .multi-item .multi-foto img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* OVERLAY ESCURO (igual desktop) */
+    /* Equipe Multidisciplinar — active (simula hover no touch) */
     .multi-item::before {
         content: '';
         position: absolute;
@@ -1470,14 +1285,10 @@ p, li, input, textarea, button {
         z-index: 2;
     }
 
-    /* CONTEÚDO */
     .multi-item .multi-info {
         position: relative;
         z-index: 3;
-        transition: color 0.4s ease;
     }
-
-    /* ===== ACTIVE (simula hover) ===== */
 
     .multi-item.active .multi-foto {
         opacity: 1;
@@ -1498,13 +1309,7 @@ p, li, input, textarea, button {
         box-shadow: var(--sombra-hover);
     }
 
-/* =====================================================
-   NOSSOS ESPAÇOS — MOBILE
-===================================================== */
-    .espacos-galeria {
-        grid-template-columns: 1fr;
-    }
-
+    /* Nosso Espaço */
     .espacos-tabs {
         flex-direction: column;
     }
@@ -1513,32 +1318,43 @@ p, li, input, textarea, button {
         width: 100%;
     }
 
+    .espacos-videos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Localização */
     .localizacao-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Contato */
     .contato-info {
         flex-direction: column;
         align-items: center;
     }
 
+    /* Footer */
     .footer p {
         font-size: 0.85rem;
     }
 }
 
+/* ============================================================
+   RESPONSIVO — 480px (MOBILE PEQUENO)
+============================================================ */
 @media (max-width: 480px) {
 
-    .atividade-card {
-        min-width: 180px;
-        max-width: 180px;
+    h2 {
+        font-size: 1.8rem;
     }
 
     .hero-card h1 {
         font-size: 1.8rem;
     }
 
-    h2 {
-        font-size: 1.8rem;
+    .atividade-img {
+        height: 260px;
+        object-position: center 35%;
     }
 }
