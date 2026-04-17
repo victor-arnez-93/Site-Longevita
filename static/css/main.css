@@ -428,7 +428,7 @@ p, li, input, textarea, button {
         transparent 360deg
     );
     filter: blur(25px);
-    opacity: 0.35;
+    opacity: 0.15;
     animation: rotatePilar 3s linear infinite;
     z-index: 0;
 }
@@ -567,7 +567,7 @@ p, li, input, textarea, button {
         transparent 360deg
     );
     filter: blur(25px);
-    opacity: 0.35;
+    opacity: 0.15;
     animation: rotateServico 3s linear infinite;
     z-index: 0;
 }
@@ -941,9 +941,11 @@ p, li, input, textarea, button {
 }
 
 .video-wrapper {
+    position: relative;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: inline-block;
 }
 
 .video-wrapper iframe {
@@ -953,30 +955,103 @@ p, li, input, textarea, button {
     height: 480px;
 }
 
-.video-wrapper {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    display: inline-block;
-}
-
 .video-wrapper video {
     display: block;
 }
 
-.video-play-btn {
+/* Wrapper maior para vídeo local */
+.video-wrapper--local {
+    width: 400px;
+    height: 560px;
+    border-radius: 12px;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-wrapper--local video {
+    flex: 1;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Cabeçalho estilo Instagram */
+.video-insta-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #fff;
+    text-decoration: none;
+    flex-shrink: 0;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s ease;
+}
+
+.video-insta-header:hover {
+    background: #f5f5f5;
+}
+
+.video-insta-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--verde);
+}
+
+.video-insta-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.video-insta-user {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.video-insta-sub {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.video-insta-btn {
+    background: transparent;
+    border: 1.5px solid #0095f6;
+    color: #0095f6;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.video-insta-header:hover .video-insta-btn {
+    background: #0095f6;
+    color: #fff;
+}
+
+/* Controles play/mute */
+.video-controls {
     position: absolute;
     bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+.video-ctrl-btn {
     background: rgba(0,0,0,0.55);
     color: #fff;
     border: 2px solid rgba(255,255,255,0.7);
     border-radius: 50%;
-    width: 52px;
-    height: 52px;
-    font-size: 1.2rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -985,11 +1060,14 @@ p, li, input, textarea, button {
     backdrop-filter: blur(4px);
 }
 
-.video-play-btn:hover {
-    background: rgba(0,0,0,0.75);
+.video-ctrl-btn:hover {
+    background: rgba(0,0,0,0.8);
     border-color: #fff;
-    transform: translateX(-50%) scale(1.1);
+    transform: scale(1.1);
 }
+
+/* Remove o play-btn antigo */
+.video-play-btn { display: none; }
 
 /* ============================================================
    LOCALIZAÇÃO

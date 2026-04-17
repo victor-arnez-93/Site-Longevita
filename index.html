@@ -540,20 +540,40 @@
         </div>
 
         <!-- Conteúdo Gold -->
+        <!-- Conteúdo Gold -->
         <div class="tab-content" id="tab-exclusive">
             <div class="espacos-videos">
-                <div class="video-wrapper">
+                <div class="video-wrapper video-wrapper--local">
+
+                    <!-- Cabeçalho estilo Instagram -->
+                    <a class="video-insta-header" href="https://www.instagram.com/longevitacdi" target="_blank" rel="noopener noreferrer">
+                        <img src="static/imagens/logo.png" alt="longevitacdi" class="video-insta-avatar">
+                        <div class="video-insta-info">
+                            <span class="video-insta-user">longevitacdi</span>
+                            <span class="video-insta-sub">Áudio original</span>
+                        </div>
+                        <span class="video-insta-btn">Ver perfil</span>
+                    </a>
+
+                    <!-- Vídeo -->
                     <video
                         id="video-gold"
                         src="static/imagens/videogold.mp4"
                         playsinline
                         loop
-                        muted
-                        style="border-radius:12px; max-width:100%; width:400px; height:480px; object-fit:cover; display:block;">
+                        muted>
                     </video>
-                    <button class="video-play-btn" onclick="toggleVideo('video-gold', this)" aria-label="Play/Pause">
-                        <i class="fas fa-play"></i>
-                    </button>
+
+                    <!-- Controles -->
+                    <div class="video-controls">
+                        <button class="video-ctrl-btn" onclick="toggleVideo('video-gold', this)" aria-label="Play/Pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="video-ctrl-btn" onclick="toggleMute('video-gold', this)" aria-label="Som">
+                            <i class="fas fa-volume-mute"></i>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>

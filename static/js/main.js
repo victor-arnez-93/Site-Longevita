@@ -159,19 +159,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================================
-    // PLAY/PAUSE VÍDEO LOCAL
+    // CONTROLES VÍDEO LOCAL (PLAY/PAUSE + MUTE)
     // ============================================================
     window.toggleVideo = function(videoId, btn) {
         const video = document.getElementById(videoId);
         const icon = btn.querySelector('i');
         if (video.paused) {
             video.play();
-            icon.classList.remove('fa-play');
-            icon.classList.add('fa-pause');
+            icon.classList.replace('fa-play', 'fa-pause');
         } else {
             video.pause();
-            icon.classList.remove('fa-pause');
-            icon.classList.add('fa-play');
+            icon.classList.replace('fa-pause', 'fa-play');
+        }
+    };
+
+    window.toggleMute = function(videoId, btn) {
+        const video = document.getElementById(videoId);
+        const icon = btn.querySelector('i');
+        video.muted = !video.muted;
+        if (video.muted) {
+            icon.classList.replace('fa-volume-up', 'fa-volume-mute');
+        } else {
+            icon.classList.replace('fa-volume-mute', 'fa-volume-up');
         }
     };
 
