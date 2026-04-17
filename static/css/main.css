@@ -475,153 +475,108 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   DESTAQUES & ATIVIDADES
+   DESTAQUES & ATIVIDADES — CARROSSEL CSS INFINITO
 ============================================================ */
 .atividades {
     text-align: center;
 }
 
-.carrossel-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.features-panel {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(150, 183, 75, 0.25);
+    border-radius: 24px;
+    padding: clamp(18px, 3vw, 28px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     margin-top: 50px;
-    position: relative;
-}
-
-.carrossel-track-container {
     overflow: hidden;
-    flex: 1;
 }
 
-.carrossel-track {
+.features-carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+@keyframes scrollFeatures {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.features-track {
     display: flex;
     gap: 20px;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: max-content;
+    animation: scrollFeatures 40s linear infinite;
+}
+
+.features-track:hover {
+    animation-play-state: paused;
 }
 
 /* CARD */
-.atividade-card {
+.feature-card {
+    flex: 0 0 220px;
     background: var(--branco);
     border-radius: 16px;
-    border: 2px solid transparent;
-    box-shadow: var(--sombra-card);
     overflow: hidden;
-    flex: 0 0 220px;
+    box-shadow: var(--sombra-card);
+    border: 2px solid transparent;
     transition: all 0.4s ease;
     cursor: pointer;
+    position: relative;
 }
 
-.atividade-card:hover {
+.feature-card::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 180px;
+    background-image: var(--thumb);
+    background-size: cover;
+    background-position: center 25%;
+    transition: transform 0.4s ease;
+}
+
+.feature-card:hover::before {
+    transform: scale(1.08);
+}
+
+.feature-card:hover {
     transform: translateY(-8px) scale(1.03);
     border-color: var(--dourado);
     box-shadow: var(--sombra-hover);
 }
 
-.atividade-img {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.atividade-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 25%;
-    transition: transform 0.4s ease;
-}
-
-.atividade-card:hover .atividade-img img {
-    transform: scale(1.1);
-}
-
-.atividade-info {
-    padding: 16px;
-    transition: all 0.4s ease;
-}
-
-.atividade-card:hover .atividade-info {
-    background: rgba(150, 183, 75, 0.95);
-}
-
-.atividade-card:hover .atividade-info h3,
-.atividade-card:hover .atividade-info p,
-.atividade-card:hover .icon-atividade {
-    color: var(--branco);
-}
-
-.icon-atividade {
+.feature-card i {
     font-size: 1.8rem;
     color: var(--verde);
-    margin-bottom: 8px;
+    margin: 16px 0 8px;
+    display: block;
     transition: color 0.4s ease;
 }
 
-.atividade-card h3 {
+.feature-card h3 {
     color: var(--marrom);
     font-size: 1rem;
-    margin-bottom: 6px;
+    margin: 0 16px 8px;
     transition: color 0.4s ease;
 }
 
-.atividade-card p {
+.feature-card p {
     color: #555;
     font-size: 0.82rem;
     line-height: 1.5;
+    margin: 0 16px 16px;
     transition: color 0.4s ease;
 }
 
-/* Botões seta */
-.carrossel-btn {
-    background: var(--branco);
-    border: 2px solid var(--verde);
+.feature-card:hover i,
+.feature-card:hover h3,
+.feature-card:hover p {
     color: var(--verde);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    font-size: 1rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--sombra-card);
 }
 
-.carrossel-btn:hover {
-    background: var(--verde);
-    color: var(--branco);
-}
-
-.carrossel-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-/* Dots */
-.carrossel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
-}
-
-.carrossel-dots .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ccc;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.carrossel-dots .dot.active {
-    background: var(--verde);
-    width: 24px;
-    border-radius: 4px;
-}
 
 /* ============================================================
    PROFISSIONAIS
@@ -1141,15 +1096,6 @@ p, li, input, textarea, button {
     .equipe-multi-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
-    /* Carrossel — 4 cards visíveis (controlado pelo JS) */
-    .atividade-card {
-        flex: 0 0 200px;
-    }
-
-    .atividade-img {
-        height: 180px;
-    }
 }
 
 /* ============================================================
@@ -1235,19 +1181,17 @@ p, li, input, textarea, button {
         max-width: 500px;
     }
 
-    /* Carrossel — 3 cards visíveis no mobile */
-    .atividade-card {
-        flex: 0 0 180px;
+    /* Carrossel CSS — feature-card mobile */
+    .feature-card {
+        flex: 0 0 170px;
     }
 
-    .atividade-img {
-        height: 160px;
+    .feature-card::before {
+        height: 140px;
     }
 
-    .carrossel-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 0.85rem;
+    .features-track {
+        animation-duration: 30s;
     }
 
     /* Profissionais — carrossel horizontal */
@@ -1372,12 +1316,12 @@ p, li, input, textarea, button {
         font-size: 1.8rem;
     }
 
-    /* Carrossel — 2 cards visíveis no mobile pequeno */
-    .atividade-card {
-        flex: 0 0 150px;
+    /* Carrossel CSS — feature-card mobile pequeno */
+    .feature-card {
+        flex: 0 0 145px;
     }
 
-    .atividade-img {
-        height: 140px;
+    .feature-card::before {
+        height: 120px;
     }
 }
