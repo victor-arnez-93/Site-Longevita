@@ -214,9 +214,18 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCarrossel();
         });
 
-        buildDots();
-        updateCarrossel();
-        startAutoPlay();
+        // Aguarda imagens carregarem para calcular largura corretamente
+        function init() {
+            buildDots();
+            updateCarrossel();
+            startAutoPlay();
+        }
+
+        if (document.readyState === 'complete') {
+            init();
+        } else {
+            window.addEventListener('load', init);
+        }
     })();
 
     // ============================================================
