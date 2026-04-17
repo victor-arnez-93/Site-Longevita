@@ -365,25 +365,81 @@ p, li, input, textarea, button {
     margin-top: 60px;
 }
 
+@property --angle-pilar {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotatePilar {
+    to { --angle-pilar: 360deg; }
+}
+
 .pilar-card {
     background: var(--branco);
-    padding: 50px 20px;
+    padding: 40px 35px;
     border-radius: 18px;
-    border: 2px solid transparent;
-    transition: all 0.4s ease;
+    border: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     box-shadow: var(--sombra-card);
     text-align: center;
-    min-height: 380px;
+    min-height: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pilar-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+        from var(--angle-pilar),
+        transparent 0deg,
+        transparent 240deg,
+        #96B74B,
+        transparent 360deg
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotatePilar 3s linear infinite;
+    z-index: 0;
+}
+
+.pilar-card::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--angle-pilar),
+        transparent 0deg,
+        transparent 240deg,
+        #96B74B,
+        transparent 360deg
+    );
+    filter: blur(25px);
+    opacity: 0.35;
+    animation: rotatePilar 3s linear infinite;
+    z-index: 0;
+}
+
+.pilar-card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .pilar-card:hover {
     transform: translateY(-8px);
-    border-color: var(--verde);
     box-shadow: var(--sombra-hover);
 }
 
@@ -406,16 +462,28 @@ p, li, input, textarea, button {
 
 .valores-lista {
     list-style: none;
-    text-align: left;
     margin-top: 8px;
     width: 100%;
     padding: 0 10px;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+    width: 100%;
+}
+
+.valores-grid li:last-child {
+    grid-column: 1 / -1;
+    text-align: center;
 }
 
 .valores-lista li {
     margin-bottom: 10px;
     color: #444;
     font-size: 1rem;
+    text-align: left;
 }
 
 .valores-lista i {
@@ -438,23 +506,79 @@ p, li, input, textarea, button {
     margin-top: 50px;
 }
 
+@property --angle-servico {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotateServico {
+    to { --angle-servico: 360deg; }
+}
+
 .servico-card {
     background: var(--branco);
     width: 500px;
     padding: 40px;
     border-radius: 18px;
-    border: 2px solid transparent;
-    transition: all 0.4s ease;
+    border: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     text-align: center;
     box-shadow: var(--sombra-card);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.servico-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+        from var(--angle-servico),
+        transparent 0deg,
+        transparent 240deg,
+        #96B74B,
+        transparent 360deg
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateServico 3s linear infinite;
+    z-index: 0;
+}
+
+.servico-card::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--angle-servico),
+        transparent 0deg,
+        transparent 240deg,
+        #96B74B,
+        transparent 360deg
+    );
+    filter: blur(25px);
+    opacity: 0.35;
+    animation: rotateServico 3s linear infinite;
+    z-index: 0;
+}
+
+.servico-card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .servico-card:hover {
     transform: translateY(-8px);
-    border-color: var(--verde);
     box-shadow: var(--sombra-hover);
 }
 
