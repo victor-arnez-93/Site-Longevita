@@ -272,56 +272,77 @@ p, li, input, textarea, button {
 /* ============================================================
    HERO
 ============================================================ */
+/* ============================================================
+   HERO
+============================================================ */
 .hero {
-    background:
-        linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.28)),
-        url("../imagens/img1.png") center center / cover no-repeat;
+    position: relative;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 0;
-    position: relative;
     overflow: hidden;
-
-    animation: heroBackground 18s ease-in-out infinite;
+    padding: 0;
 }
 
-@keyframes heroBackground {
-
-    0%,
-    45% {
-        background:
-            linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.28)),
-            url("../imagens/img1.png") center center / cover no-repeat;
-    }
-
-    50%,
-    95% {
-        background:
-            linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.28)),
-            url("../imagens/img2.png") center center / cover no-repeat;
-    }
-
-    100% {
-        background:
-            linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.28)),
-            url("../imagens/img1.png") center center / cover no-repeat;
-    }
-}
-
+/* IMG 1 */
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(248, 249, 250, 0.25);
-    backdrop-filter: blur(1px);
-    pointer-events: none;
+
+    background:
+        linear-gradient(rgba(255,255,255,0.60), rgba(255,255,255,0.18)),
+        url("../imagens/img1.png") center center / cover no-repeat;
+
+    animation: heroFade1 16s infinite;
+    z-index: 0;
 }
 
+/* IMG 2 */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(255,255,255,0.60), rgba(255,255,255,0.18)),
+        url("../imagens/img2.png") center center / cover no-repeat;
+
+    animation: heroFade2 16s infinite;
+    z-index: 0;
+}
+
+/* Overlay suave */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+
+/* Conteúdo */
 .hero .container {
     position: relative;
     z-index: 2;
+}
+
+/* ANIMAÇÕES */
+@keyframes heroFade1 {
+    0%   { opacity: 1; }
+    45%  { opacity: 1; }
+    50%  { opacity: 0; }
+    95%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes heroFade2 {
+    0%   { opacity: 0; }
+    45%  { opacity: 0; }
+    50%  { opacity: 1; }
+    95%  { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .hero-card {
