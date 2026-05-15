@@ -269,23 +269,53 @@ p, li, input, textarea, button {
 /* ============================================================
    HERO
 ============================================================ */
+/* ============================================================
+   HERO
+============================================================ */
 .hero {
-    background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.30)),
-                url("../imagens/img1.png") center center / cover no-repeat;
+    background:
+        linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.28)),
+        url("../imagens/img1.png") center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 0;
     position: relative;
+    overflow: hidden;
+
+    animation: heroBackground 18s ease-in-out infinite;
+}
+
+@keyframes heroBackground {
+
+    0%,
+    45% {
+        background:
+            linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.28)),
+            url("../imagens/img1.png") center center / cover no-repeat;
+    }
+
+    50%,
+    95% {
+        background:
+            linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.28)),
+            url("../imagens/img2.png") center center / cover no-repeat;
+    }
+
+    100% {
+        background:
+            linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.28)),
+            url("../imagens/img1.png") center center / cover no-repeat;
+    }
 }
 
 .hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(248, 249, 250, 0.4);
+    inset: 0;
+    background: rgba(248, 249, 250, 0.25);
+    backdrop-filter: blur(1px);
     pointer-events: none;
 }
 
