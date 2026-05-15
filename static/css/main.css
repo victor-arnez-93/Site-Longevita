@@ -307,7 +307,7 @@ p, li, input, textarea, button {
 
     background:
         linear-gradient(rgba(255,255,255,0.60), rgba(255,255,255,0.18)),
-        url("../imagens/img2.png") center center / cover no-repeat;
+        url("../imagens/img2.jpeg") center center / cover no-repeat;
 
     animation: heroFade2 16s infinite;
     z-index: 0;
