@@ -269,80 +269,29 @@ p, li, input, textarea, button {
 /* ============================================================
    HERO
 ============================================================ */
-/* ============================================================
-   HERO
-============================================================ */
-/* ============================================================
-   HERO
-============================================================ */
 .hero {
-    position: relative;
-    min-height: 100vh;
+    background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.30)),
+                url("../imagens/img1.png") center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    min-height: 100vh;
     padding: 0;
+    position: relative;
 }
 
-/* IMG 1 */
 .hero::before {
     content: '';
     position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(rgba(255,255,255,0.60), rgba(255,255,255,0.18)),
-        url("../imagens/img1.png") center center / cover no-repeat;
-
-    animation: heroFade1 16s infinite;
-    z-index: 0;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(248, 249, 250, 0.4);
+    pointer-events: none;
 }
 
-/* IMG 2 */
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(rgba(255,255,255,0.60), rgba(255,255,255,0.18)),
-        url("../imagens/img2.jpeg") center center / cover no-repeat;
-
-    animation: heroFade2 16s infinite;
-    z-index: 0;
-}
-
-/* Overlay suave */
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.10);
-    backdrop-filter: blur(1px);
-    z-index: 1;
-}
-
-/* Conteúdo */
 .hero .container {
     position: relative;
     z-index: 2;
-}
-
-/* ANIMAÇÕES */
-@keyframes heroFade1 {
-    0%   { opacity: 1; }
-    45%  { opacity: 1; }
-    50%  { opacity: 0; }
-    95%  { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-@keyframes heroFade2 {
-    0%   { opacity: 0; }
-    45%  { opacity: 0; }
-    50%  { opacity: 1; }
-    95%  { opacity: 1; }
-    100% { opacity: 0; }
 }
 
 .hero-card {
